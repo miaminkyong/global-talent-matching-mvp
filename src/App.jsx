@@ -364,8 +364,9 @@ function scoreMatch(candidate, job) {
       .split(/\s|\/|-/)
       .some(
         (w) =>
-          job.title.toLowerCase().includes(w) ||
-          job.category.toLowerCase().includes(w)
+          w.length > 2 &&
+          (job.title.toLowerCase().includes(w) ||
+            job.category.toLowerCase().includes(w))
       )
       ? 90
       : 55;
@@ -388,13 +389,22 @@ function scoreMatch(candidate, job) {
 
   const settlementScore = clamp(fit.reduce((a, b) => a + b, 0) / fit.length);
   const koreanBonus = job.koreanRequired && cSkills.includes("korean") ? 8 : 0;
-  const total = clamp(skillScore * 0.38 + roleScore * 0.22 + settlementScore * 0.35 + koreanBonus);
+
+  const total = clamp(
+    skillScore * 0.38 +
+      roleScore * 0.22 +
+      settlementScore * 0.35 +
+      koreanBonus
+  );
 
   const risks = [];
   if (candidate.hasChild && r.school < 4) risks.push("자녀 교육환경 확인 필요");
-  if (prefMap[candidate.housingCost] > r.cost + 1) risks.push("생활비 기대치 대비 부담 가능성");
-  if (candidate.koreaVisit.includes("direct") && r.directFlight < 4) risks.push("한국 방문 접근성 점검 필요");
-  if (candidate.spouseESL && r.koreanCommunity < 3) risks.push("배우자 지원 인프라 확인 필요");
+  if (prefMap[candidate.housingCost] > r.cost + 1)
+    risks.push("생활비 기대치 대비 부담 가능성");
+  if (candidate.koreaVisit.includes("direct") && r.directFlight < 4)
+    risks.push("한국 방문 접근성 점검 필요");
+  if (candidate.spouseESL && r.koreanCommunity < 3)
+    risks.push("배우자 지원 인프라 확인 필요");
   if (risks.length === 0) risks.push("주요 정착 리스크 낮음");
 
   return {
@@ -404,6 +414,48 @@ function scoreMatch(candidate, job) {
     settlementScore: Math.round(settlementScore),
     risks
   };
+}
+
+function getMatchReason(candidate, job, match) {
+  const reasons = [];
+
+  const skillOverlap = candidate.skills.filter((skill) =>
+    job.keywords.some(
+      (keyword) =>
+        keyword.toLowerCase().includes(skill.toLowerCase()) ||
+        skill.toLowerCase().includes(keyword.toLowerCase())
+    )
+  );
+
+  if (skillOverlap.length > 0) {
+    reasons.push(
+      `직무 키워드(${skillOverlap.slice(0, 3).join(", ")})가 공고 요구사항과 일치합니다.`
+    );
+  }
+
+  if (match.skillScore >= 70) {
+    reasons.push("직무 경험과 기술 키워드의 직접 적합도가 높습니다.");
+  } else if (match.skillScore >= 45) {
+    reasons.push("일부 직무 키워드가 일치하여 추가 검토 가치가 있습니다.");
+  }
+
+  if (match.settlementScore >= 80) {
+    reasons.push("생활 성향과 지역 정착 조건의 적합도가 높습니다.");
+  } else if (match.settlementScore >= 65) {
+    reasons.push("정착 적합도는 보통 수준이며 일부 생활 조건 확인이 필요합니다.");
+  } else {
+    reasons.push("직무 적합도는 있으나 정착 리스크 검토가 필요합니다.");
+  }
+
+  if (candidate.hasChild && job.regionProfile.familyFit >= 4) {
+    reasons.push("가족 동반 정착에 비교적 적합한 지역 조건을 보입니다.");
+  }
+
+  if (job.koreanRequired && candidate.skills.includes("korean")) {
+    reasons.push("한국어 역량이 필요한 포지션에 대응 가능합니다.");
+  }
+
+  return [...new Set(reasons)].slice(0, 3);
 }
 
 function Tag({ children }) {
@@ -438,8 +490,10 @@ export default function App() {
   const [selectedJobId, setSelectedJobId] = useState("J001");
   const [query, setQuery] = useState("");
   const [stateFilter, setStateFilter] = useState("ALL");
+  const [sortMode, setSortMode] = useState("total");
 
-  const selectedJob = jobPostings.find((job) => job.id === selectedJobId) || jobPostings[0];
+  const selectedJob =
+    jobPostings.find((job) => job.id === selectedJobId) || jobPostings[0];
 
   const matchResults = useMemo(() => {
     return candidates
@@ -447,8 +501,13 @@ export default function App() {
         candidate,
         match: scoreMatch(candidate, selectedJob)
       }))
-      .sort((a, b) => b.match.total - a.match.total);
-  }, [selectedJob]);
+      .sort((a, b) => {
+        if (sortMode === "skill") return b.match.skillScore - a.match.skillScore;
+        if (sortMode === "settlement")
+          return b.match.settlementScore - a.match.settlementScore;
+        return b.match.total - a.match.total;
+      });
+  }, [selectedJob, sortMode]);
 
   const filteredJobs = useMemo(() => {
     return jobPostings.filter((job) => {
@@ -478,7 +537,8 @@ export default function App() {
           <div className="hero-topline">Global Talent Landing Platform · MVP</div>
           <h1 className="hero-title">글로벌 인재 발굴·정착 지원 대시보드</h1>
           <p className="hero-desc">
-            공개 공고 샘플과 가상 지원자 데이터를 기반으로 직무 적합도와 정착 적합도를 함께 확인할 수 있는 초기 데모 화면입니다.
+            공개 공고 샘플과 가상 지원자 데이터를 기반으로 직무 적합도와
+            정착 적합도를 함께 확인할 수 있는 초기 데모 화면입니다.
           </p>
 
           <div className="stats-grid">
@@ -523,7 +583,10 @@ export default function App() {
             <div className="section-head">
               <div>
                 <h2>공고 선택</h2>
-                <p>여러 공고 중 하나를 선택하면 해당 공고에 대한 추천 지원자 카드가 아래에 정렬됩니다.</p>
+                <p>
+                  여러 공고 중 하나를 선택하면 해당 공고에 대한 추천 지원자
+                  카드가 아래에 정렬됩니다.
+                </p>
               </div>
             </div>
 
@@ -531,7 +594,9 @@ export default function App() {
               {jobPostings.map((job) => (
                 <button
                   key={job.id}
-                  className={`job-card selectable ${selectedJobId === job.id ? "selected" : ""}`}
+                  className={`job-card selectable ${
+                    selectedJobId === job.id ? "selected" : ""
+                  }`}
                   onClick={() => setSelectedJobId(job.id)}
                 >
                   <div className="card-top-row">
@@ -556,7 +621,11 @@ export default function App() {
                 <div className="tag-row">
                   <Tag>{selectedJob.category}</Tag>
                   <Tag>{selectedJob.seniority}</Tag>
-                  <Tag>{selectedJob.koreanRequired ? "Korean Required" : "Korean Preferred"}</Tag>
+                  <Tag>
+                    {selectedJob.koreanRequired
+                      ? "Korean Required"
+                      : "Korean Preferred"}
+                  </Tag>
                 </div>
               </div>
             </div>
@@ -564,8 +633,33 @@ export default function App() {
             <div className="section-head">
               <div>
                 <h2>추천 지원자</h2>
-                <p>직무 키워드, 역할 적합도, 정착 적합도를 종합하여 정렬했습니다.</p>
+                <p>
+                  직무 키워드, 역할 적합도, 정착 적합도를 종합하여 정렬했습니다.
+                </p>
               </div>
+            </div>
+
+            <div className="sort-control">
+              <button
+                className={`sort-btn ${sortMode === "total" ? "active" : ""}`}
+                onClick={() => setSortMode("total")}
+              >
+                종합 적합도순
+              </button>
+              <button
+                className={`sort-btn ${sortMode === "skill" ? "active" : ""}`}
+                onClick={() => setSortMode("skill")}
+              >
+                직무 적합도순
+              </button>
+              <button
+                className={`sort-btn ${
+                  sortMode === "settlement" ? "active" : ""
+                }`}
+                onClick={() => setSortMode("settlement")}
+              >
+                정착 적합도순
+              </button>
             </div>
 
             <div className="card-grid candidate-grid">
@@ -598,6 +692,17 @@ export default function App() {
 
                   <p className="card-summary">{candidate.notes}</p>
 
+                  <div className="reason-box">
+                    <div className="reason-title">추천 사유</div>
+                    <ul>
+                      {getMatchReason(candidate, selectedJob, match).map(
+                        (reason) => (
+                          <li key={reason}>{reason}</li>
+                        )
+                      )}
+                    </ul>
+                  </div>
+
                   <div className="risk-box">
                     <div className="risk-title">정착 리스크</div>
                     <ul>
@@ -617,7 +722,10 @@ export default function App() {
             <div className="section-head section-head-inline">
               <div>
                 <h2>공고 모음</h2>
-                <p>미국 진출 한국기업 관련 공개 공고 샘플을 한눈에 확인할 수 있습니다.</p>
+                <p>
+                  미국 진출 한국기업 관련 공개 공고 샘플을 한눈에 확인할 수
+                  있습니다.
+                </p>
               </div>
               <div className="filter-wrap">
                 <input
@@ -632,11 +740,13 @@ export default function App() {
                   onChange={(e) => setStateFilter(e.target.value)}
                 >
                   <option value="ALL">전체 주</option>
-                  {[...new Set(jobPostings.map((job) => job.state))].map((state) => (
-                    <option key={state} value={state}>
-                      {state}
-                    </option>
-                  ))}
+                  {[...new Set(jobPostings.map((job) => job.state))].map(
+                    (state) => (
+                      <option key={state} value={state}>
+                        {state}
+                      </option>
+                    )
+                  )}
                 </select>
               </div>
             </div>
@@ -671,7 +781,9 @@ export default function App() {
             <div className="section-head">
               <div>
                 <h2>지원자 데이터 (가상)</h2>
-                <p>설문 기반 가상 후보자 데이터를 포토카드형으로 정리한 화면입니다.</p>
+                <p>
+                  설문 기반 가상 후보자 데이터를 포토카드형으로 정리한 화면입니다.
+                </p>
               </div>
             </div>
 
@@ -696,7 +808,9 @@ export default function App() {
                     </div>
                     <div className="info-item">
                       <div className="info-label">교육 중요도</div>
-                      <div className="info-value">{candidate.educationImportance}/7</div>
+                      <div className="info-value">
+                        {candidate.educationImportance}/7
+                      </div>
                     </div>
                     <div className="info-item">
                       <div className="info-label">한국 방문</div>
@@ -704,7 +818,9 @@ export default function App() {
                     </div>
                     <div className="info-item">
                       <div className="info-label">배우자 지원</div>
-                      <div className="info-value">{candidate.spouseESL ? "필요" : "해당 없음"}</div>
+                      <div className="info-value">
+                        {candidate.spouseESL ? "필요" : "해당 없음"}
+                      </div>
                     </div>
                   </div>
 
@@ -722,7 +838,9 @@ export default function App() {
         )}
 
         <footer className="footer-note">
-          본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 공식 채용 데이터, 기업 입력 데이터, 지역 생활환경 데이터 등을 연동해 고도화할 수 있습니다.
+          본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 공식 채용
+          데이터, 기업 입력 데이터, 지역 생활환경 데이터 등을 연동해 고도화할 수
+          있습니다.
         </footer>
       </div>
     </div>
