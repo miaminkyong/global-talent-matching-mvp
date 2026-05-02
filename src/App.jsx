@@ -873,20 +873,48 @@ export default function App() {
             </button>
           </div>
 
-          <div className="stats-grid">
-            <div className="stat-box">
-              <div className="stat-number">{jobs.length}</div>
-              <div className="stat-label">공고 수</div>
-            </div>
-            <div className="stat-box">
-              <div className="stat-number">{candidates.length}</div>
-              <div className="stat-label">인재 DB</div>
-            </div>
-            <div className="stat-box">
-              <div className="stat-number">{lastRefresh}</div>
-              <div className="stat-label">공고 갱신 기준</div>
-            </div>
-          </div>
+         {mode === "admin" ? (
+  <div className="stats-grid">
+    <div className="stat-box">
+      <div className="stat-number">{jobs.length}</div>
+      <div className="stat-label">공고 수</div>
+    </div>
+    <div className="stat-box">
+      <div className="stat-number">{candidates.length}</div>
+      <div className="stat-label">인재 DB</div>
+    </div>
+    <div className="stat-box">
+      <div className="stat-number">{lastRefresh}</div>
+      <div className="stat-label">공고 갱신 기준</div>
+    </div>
+  </div>
+) : (
+  <div className="seeker-welcome-wrap">
+    <div className="stat-box seeker-job-count">
+      <div className="stat-number">{jobs.length}</div>
+      <div className="stat-label">현재 탐색 가능한 공고 수</div>
+    </div>
+
+    <div className="seeker-welcome-box">
+      <p className="welcome-greeting">안녕하세요. 헤드헌터 성민경입니다.</p>
+      <p>
+        나에게 맞는 미국 근무지와 생활환경을 찾으려면
+        <strong> 정착핏 테스트</strong>를,
+      </p>
+      <p>
+        관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면
+        <strong> 공고 탐색</strong>을,
+      </p>
+      <p>
+        보유한 이력서를 기반으로 맞춤 공고를 추천받고 싶다면
+        <strong> 프로필 업로드</strong>를 눌러보세요.
+      </p>
+      <p className="welcome-closing">
+        안정적인 미국 정착과 성공적인 구직을 응원합니다!
+      </p>
+    </div>
+  </div>
+)}
         </header>
 
         {mode === "admin" ? (
