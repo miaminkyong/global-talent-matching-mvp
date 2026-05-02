@@ -497,7 +497,79 @@ export default function App() {
   });
 
   const [profileResult, setProfileResult] = useState(null);
+const [editingCandidateId, setEditingCandidateId] = useState(null);
+const [editForm, setEditForm] = useState({
+  name: "",
+  targetRole: "",
+  experienceYears: "",
+  residence: "",
+  skills: "",
+  notes: ""
+});
+  function startEditCandidate(candidate) {
+  setEditingCandidateId(candidate.id);
+  setEditForm({
+    name: candidate.name,
+    targetRole: candidate.targetRole,
+    experienceYears: candidate.experienceYears,
+    residence: candidate.residence,
+    skills: candidate.skills.join(", "),
+    notes: candidate.notes
+  });
+}
 
+function cancelEditCandidate() {
+  setEditingCandidateId(null);
+  setEditForm({
+    name: "",
+    targetRole: "",
+    experienceYears: "",
+    residence: "",
+    skills: "",
+    notes: ""
+  });
+}
+
+function saveEditCandidate(candidateId) {
+  setCandidates((prev) =>
+    prev.map((candidate) => {
+      if (candidate.id !== candidateId) return candidate;
+
+      return {
+        ...candidate,
+        name: editForm.name || "이름 미입력",
+        targetRole: editForm.targetRole || "Open Position",
+        experienceYears: Number(editForm.experienceYears) || 0,
+        residence: editForm.residence || "미입력",
+        skills: editForm.skills
+          .split(",")
+          .map((skill) => skill.trim())
+          .filter(Boolean),
+        notes: editForm.notes || "관리자 수정 후보자 프로필"
+      };
+    })
+  );
+
+  cancelEditCandidate();
+}
+
+function deleteCandidate(candidateId) {
+  const target = candidates.find((candidate) => candidate.id === candidateId);
+  const ok = window.confirm(
+    `${target?.name || "선택한 후보자"} 데이터를 삭제할까요?`
+  );
+
+  if (!ok) return;
+
+  setCandidates((prev) =>
+    prev.filter((candidate) => candidate.id !== candidateId)
+  );
+
+  if (editingCandidateId === candidateId) {
+    cancelEditCandidate();
+  }
+}
+  
   const selectedJob = jobs.find((job) => job.id === selectedJobId) || jobs[0];
 
   const matchResults = useMemo(() => {
@@ -594,7 +666,7 @@ export default function App() {
 
     const candidate = {
       id: `C${String(candidates.length + 1).padStart(3, "0")}`,
-      name: profileForm.name || "업로드 지원자",
+      name: profileForm.name || "이름 미입력",
       residence: "대한민국",
       targetRole: profileForm.targetRole || "Open Position",
       skills: skills.length ? skills : ["korean", "excel", "communication"],
@@ -868,44 +940,156 @@ export default function App() {
                 </div>
 
                 <div className="card-grid candidate-grid">
-                  {candidates.map((candidate) => (
-                    <div key={candidate.id} className="candidate-card">
-                      <div className="card-top-row">
-                        <Tag>{candidate.candidateType}</Tag>
-                        <span className="candidate-id">{candidate.id}</span>
-                      </div>
-                      <h3>{candidate.name}</h3>
-                      <div className="card-subtitle">
-                        {candidate.targetRole} · 경력 {candidate.experienceYears}년
-                      </div>
-                      <div className="card-meta">{candidate.residence}</div>
+  {candidates.map((candidate) => {
+    const isEditing = editingCandidateId === candidate.id;
 
-                      <div className="info-grid">
-                        <div className="info-item">
-                          <div className="info-label">주거 선호</div>
-                          <div className="info-value">{candidate.urbanPreference}</div>
-                        </div>
-                        <div className="info-item">
-                          <div className="info-label">교육 중요도</div>
-                          <div className="info-value">{candidate.educationImportance}/7</div>
-                        </div>
-                        <div className="info-item">
-                          <div className="info-label">한국 방문</div>
-                          <div className="info-value">{candidate.koreaVisit}</div>
-                        </div>
-                        <div className="info-item">
-                          <div className="info-label">배우자 지원</div>
-                          <div className="info-value">
-                            {candidate.spouseESL ? "필요" : "해당 없음"}
-                          </div>
-                        </div>
-                      </div>
+    return (
+      <div key={candidate.id} className="candidate-card">
+        <div className="card-top-row">
+          <Tag>{candidate.candidateType}</Tag>
+          <span className="candidate-id">{candidate.id}</span>
+        </div>
 
-                      <div className="tag-row">
-                        {candidate.skills.map((skill) => (
-                          <Tag key={skill}>{skill}</Tag>
-                        ))}
-                      </div>
+        {!isEditing ? (
+          <>
+            <h3>{candidate.name}</h3>
+            <div className="card-subtitle">
+              {candidate.targetRole} · 경력 {candidate.experienceYears}년
+            </div>
+            <div className="card-meta">{candidate.residence}</div>
+
+            <div className="info-grid">
+              <div className="info-item">
+                <div className="info-label">주거 선호</div>
+                <div className="info-value">{candidate.urbanPreference}</div>
+              </div>
+              <div className="info-item">
+                <div className="info-label">교육 중요도</div>
+                <div className="info-value">
+                  {candidate.educationImportance}/7
+                </div>
+              </div>
+              <div className="info-item">
+                <div className="info-label">한국 방문</div>
+                <div className="info-value">{candidate.koreaVisit}</div>
+              </div>
+              <div className="info-item">
+                <div className="info-label">배우자 지원</div>
+                <div className="info-value">
+                  {candidate.spouseESL ? "필요" : "해당 없음"}
+                </div>
+              </div>
+            </div>
+
+            <div className="tag-row">
+              {candidate.skills.map((skill) => (
+                <Tag key={skill}>{skill}</Tag>
+              ))}
+            </div>
+
+            <p className="card-summary">{candidate.notes}</p>
+
+            <div className="db-action-row">
+              <button
+                className="db-edit-btn"
+                onClick={() => startEditCandidate(candidate)}
+              >
+                수정
+              </button>
+              <button
+                className="db-delete-btn"
+                onClick={() => deleteCandidate(candidate.id)}
+              >
+                삭제
+              </button>
+            </div>
+          </>
+        ) : (
+          <div className="edit-panel">
+            <label>
+              이름
+              <input
+                value={editForm.name}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, name: e.target.value })
+                }
+              />
+            </label>
+
+            <label>
+              희망 직무
+              <input
+                value={editForm.targetRole}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, targetRole: e.target.value })
+                }
+              />
+            </label>
+
+            <label>
+              경력 연차
+              <input
+                type="number"
+                value={editForm.experienceYears}
+                onChange={(e) =>
+                  setEditForm({
+                    ...editForm,
+                    experienceYears: e.target.value
+                  })
+                }
+              />
+            </label>
+
+            <label>
+              거주지
+              <input
+                value={editForm.residence}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, residence: e.target.value })
+                }
+              />
+            </label>
+
+            <label>
+              핵심 역량
+              <input
+                value={editForm.skills}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, skills: e.target.value })
+                }
+              />
+            </label>
+
+            <label>
+              메모
+              <textarea
+                value={editForm.notes}
+                onChange={(e) =>
+                  setEditForm({ ...editForm, notes: e.target.value })
+                }
+              />
+            </label>
+
+            <div className="db-action-row">
+              <button
+                className="db-save-btn"
+                onClick={() => saveEditCandidate(candidate.id)}
+              >
+                저장
+              </button>
+              <button
+                className="db-cancel-btn"
+                onClick={cancelEditCandidate}
+              >
+                취소
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  })}
+</div>
                       <p className="card-summary">{candidate.notes}</p>
                     </div>
                   ))}
