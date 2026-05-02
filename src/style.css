@@ -9,13 +9,16 @@
   --accent: #2f5d86;
 
   --seeker-red: #d20800;
-  --seeker-blue: #1f6f8b;
-  --seeker-navy: #022773;
-  --seeker-line: #dce4ef;
-  --seeker-gray: #f8f9fa;
-  --seeker-mid-gray: #a4a6a4;
-  --seeker-text: #585453;
-  --seeker-border: #cccccc;
+--seeker-blue: #134fa8;
+--seeker-blue-hover: #0e3f86;
+--seeker-pastel: #adcfff;
+--seeker-pastel-bg: #f4f8ff;
+--seeker-navy: #022773;
+--seeker-line: #dce4ef;
+--seeker-gray: #f8f9fa;
+--seeker-mid-gray: #a4a6a4;
+--seeker-text: #585453;
+--seeker-border: #cccccc;
 }
 
 * {
@@ -48,7 +51,7 @@ button {
 }
 
 .app-shell.seeker-mode {
-  background: var(--seeker-gray);
+  background: var(--seeker-pastel-bg);
 }
 
 .page-container {
@@ -713,8 +716,8 @@ button {
 }
 
 .seeker-badge {
-  background: #ffffff;
-  color: var(--seeker-blue);
+  background: var(--seeker-pastel);
+  color: var(--seeker-navy);
   border: 1px solid var(--seeker-line);
   border-radius: 999px;
   padding: 8px 12px;
@@ -771,7 +774,7 @@ button {
 }
 
 .cta-btn:hover {
-  background: #185a70;
+  background: var(--seeker-blue-hover);
 }
 
 .cta-btn.small,
@@ -819,7 +822,7 @@ button {
 }
 
 .fit-type-card {
-  background: #f8f9fa;
+  background: var(--seeker-pastel-bg);
   border: 1px solid var(--seeker-line);
   border-radius: 16px;
   padding: 18px;
@@ -971,4 +974,9 @@ button {
   .info-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+.form-panel input[type="range"] {
+  accent-color: var(--seeker-blue);
 }
