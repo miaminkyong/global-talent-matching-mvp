@@ -939,7 +939,50 @@ button {
   font-size: 14px;
   line-height: 1.7;
 }
+.seeker-welcome-wrap {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
 
+.seeker-job-count {
+  background: #ffffff;
+  border: 1px solid var(--seeker-line);
+}
+
+.seeker-welcome-box {
+  background: var(--seeker-pastel);
+  border: 1px solid var(--seeker-line);
+  border-radius: 18px;
+  padding: 22px 24px;
+  color: var(--seeker-navy);
+  box-shadow: 0 10px 24px rgba(19, 79, 168, 0.12);
+}
+
+.seeker-welcome-box p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.seeker-welcome-box strong {
+  color: var(--seeker-blue);
+  font-weight: 900;
+}
+
+.welcome-greeting {
+  font-size: 18px !important;
+  font-weight: 900;
+  margin-bottom: 12px !important;
+}
+
+.welcome-closing {
+  margin-top: 14px !important;
+  font-weight: 900;
+  color: var(--seeker-red);
+}
 @media (max-width: 900px) {
   .app-shell {
     padding: 22px 14px 44px;
@@ -955,10 +998,11 @@ button {
   }
 
   .stats-grid,
-  .admin-summary,
-  .two-column-layout {
-    grid-template-columns: 1fr;
-  }
+.admin-summary,
+.two-column-layout,
+.seeker-welcome-wrap {
+  grid-template-columns: 1fr;
+}
 
   .tab-btn {
     width: 100%;
