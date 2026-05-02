@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 
-const jobPostings = [
+const initialJobs = [
   {
     id: "J001",
     company: "Ultium Cells LLC",
@@ -10,21 +10,11 @@ const jobPostings = [
     category: "Smart Factory / Battery",
     seniority: "Mid",
     koreanRequired: true,
-    englishRequired: true,
     keywords: ["battery", "smart factory", "automation", "PLC", "python", "data analytics", "korean"],
-    regionProfile: {
-      cityLife: 2,
-      cost: 5,
-      safety: 3,
-      school: 3,
-      diversity: 2,
-      koreanCommunity: 2,
-      familyFit: 5,
-      directFlight: 2
-    },
-    summary:
-      "배터리 제조 공정과 스마트팩토리 자동화 역량을 요구하는 한영 바이링구얼 엔지니어 포지션",
-    source: "공개 공고 기반 샘플"
+    regionProfile: { cityLife: 2, cost: 5, safety: 3, school: 3, diversity: 2, koreanCommunity: 2, familyFit: 5, directFlight: 2 },
+    summary: "배터리 제조 공정과 스마트팩토리 자동화 역량을 요구하는 한영 바이링구얼 엔지니어 포지션",
+    source: "공개 공고 기반 샘플",
+    updatedAt: "오늘 09:00"
   },
   {
     id: "J002",
@@ -35,21 +25,11 @@ const jobPostings = [
     category: "Manufacturing Equipment",
     seniority: "Mid",
     koreanRequired: false,
-    englishRequired: true,
     keywords: ["equipment", "manufacturing", "logistics", "battery", "electronics", "autocad", "PLC"],
-    regionProfile: {
-      cityLife: 2,
-      cost: 4,
-      safety: 3,
-      school: 3,
-      diversity: 2,
-      koreanCommunity: 2,
-      familyFit: 4,
-      directFlight: 2
-    },
-    summary:
-      "제조·물류 장비 이해와 현장 대응 역량을 요구하는 배터리/전자 제조 기반 엔지니어 포지션",
-    source: "공개 공고 기반 샘플"
+    regionProfile: { cityLife: 2, cost: 4, safety: 3, school: 3, diversity: 2, koreanCommunity: 2, familyFit: 4, directFlight: 2 },
+    summary: "제조·물류 장비 이해와 현장 대응 역량을 요구하는 배터리/전자 제조 기반 엔지니어 포지션",
+    source: "공개 공고 기반 샘플",
+    updatedAt: "오늘 09:00"
   },
   {
     id: "J003",
@@ -60,21 +40,11 @@ const jobPostings = [
     category: "Automation / Field Service",
     seniority: "Junior-Mid",
     koreanRequired: true,
-    englishRequired: true,
     keywords: ["field service", "automation", "maintenance", "production support", "customer", "korean"],
-    regionProfile: {
-      cityLife: 2,
-      cost: 4,
-      safety: 3,
-      school: 3,
-      diversity: 2,
-      koreanCommunity: 2,
-      familyFit: 4,
-      directFlight: 2
-    },
-    summary:
-      "자동화 물류 장비 유지보수와 고객사 현장 대응을 담당하는 한영 바이링구얼 엔지니어 포지션",
-    source: "공개 공고 기반 샘플"
+    regionProfile: { cityLife: 2, cost: 4, safety: 3, school: 3, diversity: 2, koreanCommunity: 2, familyFit: 4, directFlight: 2 },
+    summary: "자동화 물류 장비 유지보수와 고객사 현장 대응을 담당하는 한영 바이링구얼 엔지니어 포지션",
+    source: "공개 공고 기반 샘플",
+    updatedAt: "오늘 09:00"
   },
   {
     id: "J004",
@@ -85,21 +55,11 @@ const jobPostings = [
     category: "Finance / Controller",
     seniority: "Senior",
     koreanRequired: true,
-    englishRequired: true,
     keywords: ["finance", "controller", "accounting", "compliance", "korean", "english"],
-    regionProfile: {
-      cityLife: 4,
-      cost: 3,
-      safety: 4,
-      school: 4,
-      diversity: 4,
-      koreanCommunity: 3,
-      familyFit: 4,
-      directFlight: 4
-    },
-    summary:
-      "미국 법인 재무관리와 내부통제 경험을 요구하는 현지 채용 기반 컨트롤러 포지션",
-    source: "공개 공고 기반 샘플"
+    regionProfile: { cityLife: 4, cost: 3, safety: 4, school: 4, diversity: 4, koreanCommunity: 3, familyFit: 4, directFlight: 4 },
+    summary: "미국 법인 재무관리와 내부통제 경험을 요구하는 현지 채용 기반 컨트롤러 포지션",
+    source: "공개 공고 기반 샘플",
+    updatedAt: "오늘 09:00"
   },
   {
     id: "J005",
@@ -110,21 +70,11 @@ const jobPostings = [
     category: "Accounting",
     seniority: "Junior",
     koreanRequired: true,
-    englishRequired: true,
     keywords: ["accounting", "finance", "excel", "erp", "korean", "bilingual"],
-    regionProfile: {
-      cityLife: 5,
-      cost: 1,
-      safety: 4,
-      school: 4,
-      diversity: 5,
-      koreanCommunity: 5,
-      familyFit: 3,
-      directFlight: 5
-    },
-    summary:
-      "한인 인프라가 강한 캘리포니아 지역의 회계·재무 주니어 포지션",
-    source: "공개 공고 기반 샘플"
+    regionProfile: { cityLife: 5, cost: 1, safety: 4, school: 4, diversity: 5, koreanCommunity: 5, familyFit: 3, directFlight: 5 },
+    summary: "한인 인프라가 강한 캘리포니아 지역의 회계·재무 주니어 포지션",
+    source: "공개 공고 기반 샘플",
+    updatedAt: "오늘 09:00"
   },
   {
     id: "J006",
@@ -135,25 +85,15 @@ const jobPostings = [
     category: "Marketing / Operations",
     seniority: "Junior-Mid",
     koreanRequired: false,
-    englishRequired: true,
     keywords: ["marketing", "operations", "excel", "google sheets", "communication", "korean preferred"],
-    regionProfile: {
-      cityLife: 5,
-      cost: 2,
-      safety: 4,
-      school: 4,
-      diversity: 5,
-      koreanCommunity: 5,
-      familyFit: 4,
-      directFlight: 5
-    },
-    summary:
-      "뉴저지 한인 인프라와 직항 접근성이 강한 마케팅·오퍼레이션 포지션",
-    source: "공개 공고 기반 샘플"
+    regionProfile: { cityLife: 5, cost: 2, safety: 4, school: 4, diversity: 5, koreanCommunity: 5, familyFit: 4, directFlight: 5 },
+    summary: "뉴저지 한인 인프라와 직항 접근성이 강한 마케팅·오퍼레이션 포지션",
+    source: "공개 공고 기반 샘플",
+    updatedAt: "오늘 09:00"
   }
 ];
 
-const candidates = [
+const initialCandidates = [
   {
     id: "C001",
     name: "김서연",
@@ -169,6 +109,7 @@ const candidates = [
     diversityPreference: 3,
     koreaVisit: "direct_important",
     spouseESL: true,
+    candidateType: "정착핏 테스트",
     notes: "초등 자녀 교육과 안정적 생활비를 중시. 제조업 현장 경험 보유."
   },
   {
@@ -186,6 +127,7 @@ const candidates = [
     diversityPreference: 2,
     koreaVisit: "rare",
     spouseESL: false,
+    candidateType: "프로필 업로드",
     notes: "생활비가 낮고 현장성이 강한 지역 선호. 이동 유연성 높음."
   },
   {
@@ -203,6 +145,7 @@ const candidates = [
     diversityPreference: 4,
     koreaVisit: "direct_required",
     spouseESL: true,
+    candidateType: "프로필 업로드",
     notes: "재무관리 경력 강점. 도시 인프라, 학군, 한국 접근성을 중시."
   },
   {
@@ -220,6 +163,7 @@ const candidates = [
     diversityPreference: 2,
     koreaVisit: "sometimes_direct",
     spouseESL: false,
+    candidateType: "정착핏 테스트",
     notes: "제조 장비와 현장 대응 경험. 교외형 근무지 수용 가능."
   },
   {
@@ -237,6 +181,7 @@ const candidates = [
     diversityPreference: 4,
     koreaVisit: "direct_required",
     spouseESL: false,
+    candidateType: "프로필 업로드",
     notes: "한인 커뮤니티와 도시 인프라 선호. 주니어 회계 포지션 적합."
   },
   {
@@ -254,6 +199,7 @@ const candidates = [
     diversityPreference: 4,
     koreaVisit: "sometimes_direct",
     spouseESL: false,
+    candidateType: "공고 탐색",
     notes: "마케팅/운영 경험. J1/OPT 가능성을 탐색하는 청년 인재 프로필."
   },
   {
@@ -271,6 +217,7 @@ const candidates = [
     diversityPreference: 3,
     koreaVisit: "sometimes_direct",
     spouseESL: true,
+    candidateType: "정착핏 테스트",
     notes: "가족 동반 가능성 높음. 배터리 제조 품질/공정 경험 보유."
   },
   {
@@ -288,6 +235,7 @@ const candidates = [
     diversityPreference: 3,
     koreaVisit: "rare",
     spouseESL: false,
+    candidateType: "공고 탐색",
     notes: "비인기 지역 수용성이 높고 기술 적합도가 높은 자동화 인재."
   },
   {
@@ -305,6 +253,7 @@ const candidates = [
     diversityPreference: 3,
     koreaVisit: "direct_required",
     spouseESL: true,
+    candidateType: "정착핏 테스트",
     notes: "가족 정착 안정성을 최우선으로 보는 운영/HR 인재."
   },
   {
@@ -322,6 +271,7 @@ const candidates = [
     diversityPreference: 2,
     koreaVisit: "rare",
     spouseESL: false,
+    candidateType: "프로필 업로드",
     notes: "미국 체류 중인 제조 엔지니어. 현장 투입 가능성과 이동 유연성 보유."
   }
 ];
@@ -371,10 +321,10 @@ function scoreMatch(candidate, job) {
       ? 90
       : 55;
 
-  const cityPref = prefMap[candidate.urbanPreference];
-  const costPref = prefMap[candidate.housingCost];
-  const safetyPref = prefMap[candidate.safetyTolerance];
-  const flightPref = prefMap[candidate.koreaVisit];
+  const cityPref = prefMap[candidate.urbanPreference] || 3;
+  const costPref = prefMap[candidate.housingCost] || 3;
+  const safetyPref = prefMap[candidate.safetyTolerance] || 3;
+  const flightPref = prefMap[candidate.koreaVisit] || 3;
   const r = job.regionProfile;
 
   const fit = [
@@ -391,10 +341,7 @@ function scoreMatch(candidate, job) {
   const koreanBonus = job.koreanRequired && cSkills.includes("korean") ? 8 : 0;
 
   const total = clamp(
-    skillScore * 0.38 +
-      roleScore * 0.22 +
-      settlementScore * 0.35 +
-      koreanBonus
+    skillScore * 0.38 + roleScore * 0.22 + settlementScore * 0.35 + koreanBonus
   );
 
   const risks = [];
@@ -433,12 +380,6 @@ function getMatchReason(candidate, job, match) {
     );
   }
 
-  if (match.skillScore >= 70) {
-    reasons.push("직무 경험과 기술 키워드의 직접 적합도가 높습니다.");
-  } else if (match.skillScore >= 45) {
-    reasons.push("일부 직무 키워드가 일치하여 추가 검토 가치가 있습니다.");
-  }
-
   if (match.settlementScore >= 80) {
     reasons.push("생활 성향과 지역 정착 조건의 적합도가 높습니다.");
   } else if (match.settlementScore >= 65) {
@@ -456,6 +397,39 @@ function getMatchReason(candidate, job, match) {
   }
 
   return [...new Set(reasons)].slice(0, 3);
+}
+
+function getFitType(candidate) {
+  if (candidate.hasChild && candidate.educationImportance >= 5) return "가족 안정형";
+  if (candidate.urbanPreference === "city") return "도시 커리어형";
+  if (candidate.housingCost === "avg_minus_30") return "비용 효율형";
+  if (candidate.urbanPreference === "town") return "현장 적응형";
+  return "균형 정착형";
+}
+
+function downloadCSV(filename, rows) {
+  if (!rows.length) return;
+
+  const headers = Object.keys(rows[0]);
+  const csv = [
+    headers.join(","),
+    ...rows.map((row) =>
+      headers
+        .map((field) => {
+          const value = row[field] ?? "";
+          return `"${String(value).replaceAll('"', '""')}"`;
+        })
+        .join(",")
+    )
+  ].join("\n");
+
+  const blob = new Blob(["\uFEFF" + csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
 }
 
 function Tag({ children }) {
@@ -486,14 +460,45 @@ function MatchBar({ score }) {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState("matching");
+  const [jobs, setJobs] = useState(initialJobs);
+  const [candidates, setCandidates] = useState(initialCandidates);
+  const [mode, setMode] = useState("admin");
+  const [adminTab, setAdminTab] = useState("matching");
+  const [seekerTab, setSeekerTab] = useState("fit");
   const [selectedJobId, setSelectedJobId] = useState("J001");
-  const [query, setQuery] = useState("");
-  const [stateFilter, setStateFilter] = useState("ALL");
   const [sortMode, setSortMode] = useState("total");
+  const [jobQuery, setJobQuery] = useState("");
+  const [stateFilter, setStateFilter] = useState("ALL");
+  const [lastRefresh, setLastRefresh] = useState("오늘 09:00");
 
-  const selectedJob =
-    jobPostings.find((job) => job.id === selectedJobId) || jobPostings[0];
+  const [fitForm, setFitForm] = useState({
+    name: "테스트 지원자",
+    targetRole: "Battery Engineer",
+    skills: "battery, manufacturing, korean",
+    residence: "대한민국",
+    urbanPreference: "suburb",
+    hasChild: "true",
+    educationImportance: 6,
+    safetyTolerance: "very_safe",
+    housingCost: "avg_minus_15",
+    diversityPreference: 3,
+    koreaVisit: "direct_important",
+    spouseESL: "true"
+  });
+
+  const [fitResult, setFitResult] = useState(null);
+
+  const [profileForm, setProfileForm] = useState({
+    name: "",
+    targetRole: "",
+    years: 3,
+    skills: "",
+    fileName: ""
+  });
+
+  const [profileResult, setProfileResult] = useState(null);
+
+  const selectedJob = jobs.find((job) => job.id === selectedJobId) || jobs[0];
 
   const matchResults = useMemo(() => {
     return candidates
@@ -507,11 +512,11 @@ export default function App() {
           return b.match.settlementScore - a.match.settlementScore;
         return b.match.total - a.match.total;
       });
-  }, [selectedJob, sortMode]);
+  }, [candidates, selectedJob, sortMode]);
 
   const filteredJobs = useMemo(() => {
-    return jobPostings.filter((job) => {
-      const q = query.trim().toLowerCase();
+    return jobs.filter((job) => {
+      const q = jobQuery.trim().toLowerCase();
       const target = [
         job.company,
         job.title,
@@ -528,319 +533,797 @@ export default function App() {
 
       return queryOk && stateOk;
     });
-  }, [query, stateFilter]);
+  }, [jobs, jobQuery, stateFilter]);
+
+  function buildFitCandidate() {
+    return {
+      id: "TEST",
+      name: fitForm.name,
+      residence: fitForm.residence,
+      targetRole: fitForm.targetRole,
+      skills: fitForm.skills
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean),
+      experienceYears: 3,
+      urbanPreference: fitForm.urbanPreference,
+      hasChild: fitForm.hasChild === "true",
+      educationImportance: Number(fitForm.educationImportance),
+      safetyTolerance: fitForm.safetyTolerance,
+      housingCost: fitForm.housingCost,
+      diversityPreference: Number(fitForm.diversityPreference),
+      koreaVisit: fitForm.koreaVisit,
+      spouseESL: fitForm.spouseESL === "true",
+      candidateType: "정착핏 테스트",
+      notes: "정착핏 테스트를 통해 생성된 예비 후보자 프로필"
+    };
+  }
+
+  function runFitTest() {
+    const candidate = buildFitCandidate();
+    const rankedJobs = jobs
+      .map((job) => ({
+        job,
+        match: scoreMatch(candidate, job)
+      }))
+      .sort((a, b) => b.match.total - a.match.total)
+      .slice(0, 3);
+
+    setFitResult({
+      candidate,
+      fitType: getFitType(candidate),
+      rankedJobs
+    });
+  }
+
+  function saveFitCandidate() {
+    const candidate = buildFitCandidate();
+    const newCandidate = {
+      ...candidate,
+      id: `C${String(candidates.length + 1).padStart(3, "0")}`
+    };
+    setCandidates((prev) => [newCandidate, ...prev]);
+    setFitResult((prev) => prev && { ...prev, saved: true });
+  }
+
+  function analyzeProfile() {
+    const skills = profileForm.skills
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean);
+
+    const candidate = {
+      id: `C${String(candidates.length + 1).padStart(3, "0")}`,
+      name: profileForm.name || "업로드 지원자",
+      residence: "대한민국",
+      targetRole: profileForm.targetRole || "Open Position",
+      skills: skills.length ? skills : ["korean", "excel", "communication"],
+      experienceYears: Number(profileForm.years),
+      urbanPreference: "suburb",
+      hasChild: false,
+      educationImportance: 2,
+      safetyTolerance: "safe",
+      housingCost: "average",
+      diversityPreference: 3,
+      koreaVisit: "sometimes_direct",
+      spouseESL: false,
+      candidateType: "프로필 업로드",
+      notes: `${profileForm.fileName || "이력서"} 기반으로 생성된 후보자 프로필`
+    };
+
+    const rankedJobs = jobs
+      .map((job) => ({
+        job,
+        match: scoreMatch(candidate, job)
+      }))
+      .sort((a, b) => b.match.total - a.match.total)
+      .slice(0, 3);
+
+    setCandidates((prev) => [candidate, ...prev]);
+    setProfileResult({ candidate, rankedJobs });
+  }
+
+  function refreshJobs() {
+    const now = new Date();
+    const label = `오늘 ${String(now.getHours()).padStart(2, "0")}:${String(
+      now.getMinutes()
+    ).padStart(2, "0")}`;
+    setLastRefresh(label);
+    setJobs((prev) => prev.map((job) => ({ ...job, updatedAt: label })));
+  }
+
+  function exportCandidates() {
+    const rows = candidates.map((c) => ({
+      id: c.id,
+      name: c.name,
+      targetRole: c.targetRole,
+      experienceYears: c.experienceYears,
+      residence: c.residence,
+      skills: c.skills.join(" / "),
+      candidateType: c.candidateType,
+      hasChild: c.hasChild ? "Y" : "N",
+      educationImportance: c.educationImportance,
+      safetyTolerance: c.safetyTolerance,
+      housingCost: c.housingCost,
+      notes: c.notes
+    }));
+    downloadCSV("talent-db.csv", rows);
+  }
+
+  function exportJobs() {
+    const rows = jobs.map((j) => ({
+      id: j.id,
+      company: j.company,
+      title: j.title,
+      location: j.location,
+      state: j.state,
+      category: j.category,
+      seniority: j.seniority,
+      koreanRequired: j.koreanRequired ? "Y" : "N",
+      keywords: j.keywords.join(" / "),
+      source: j.source,
+      updatedAt: j.updatedAt
+    }));
+    downloadCSV("job-postings.csv", rows);
+  }
 
   return (
-    <div className="app-shell">
+    <div className={mode === "seeker" ? "app-shell seeker-mode" : "app-shell"}>
       <div className="page-container">
         <header className="hero-card">
           <div className="hero-topline">Global Talent Landing Platform · MVP</div>
-          <h1 className="hero-title">글로벌 인재 발굴·정착 지원 대시보드</h1>
+          <h1 className="hero-title">글로벌 인재 발굴·정착 지원 플랫폼</h1>
           <p className="hero-desc">
-            공개 공고 샘플과 가상 지원자 데이터를 기반으로 직무 적합도와
-            정착 적합도를 함께 확인할 수 있는 초기 데모 화면입니다.
+            기업 수요 기반 인재 발굴, 정착핏 테스트, 프로필 업로드, 공고 탐색을
+            하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
           </p>
+
+          <div className="mode-switch">
+            <button
+              className={`mode-btn ${mode === "admin" ? "active" : ""}`}
+              onClick={() => setMode("admin")}
+            >
+              관리자용
+            </button>
+            <button
+              className={`mode-btn seeker ${mode === "seeker" ? "active" : ""}`}
+              onClick={() => setMode("seeker")}
+            >
+              구직자용
+            </button>
+          </div>
 
           <div className="stats-grid">
             <div className="stat-box">
-              <div className="stat-number">{jobPostings.length}</div>
+              <div className="stat-number">{jobs.length}</div>
               <div className="stat-label">공고 수</div>
             </div>
             <div className="stat-box">
               <div className="stat-number">{candidates.length}</div>
-              <div className="stat-label">가상 지원자 수</div>
+              <div className="stat-label">인재 DB</div>
             </div>
             <div className="stat-box">
-              <div className="stat-number">{matchResults[0]?.match.total || 0}%</div>
-              <div className="stat-label">최고 매칭 점수</div>
+              <div className="stat-number">{lastRefresh}</div>
+              <div className="stat-label">공고 갱신 기준</div>
             </div>
           </div>
         </header>
 
-        <nav className="tab-nav">
-          <button
-            className={`tab-btn ${activeTab === "matching" ? "active" : ""}`}
-            onClick={() => setActiveTab("matching")}
-          >
-            공고/지원자 매칭
-          </button>
-          <button
-            className={`tab-btn ${activeTab === "jobs" ? "active" : ""}`}
-            onClick={() => setActiveTab("jobs")}
-          >
-            공고 모음
-          </button>
-          <button
-            className={`tab-btn ${activeTab === "candidates" ? "active" : ""}`}
-            onClick={() => setActiveTab("candidates")}
-          >
-            지원자 데이터 (가상)
-          </button>
-        </nav>
-
-        {activeTab === "matching" && (
-          <section className="section-card">
-            <div className="section-head">
-              <div>
-                <h2>공고 선택</h2>
-                <p>
-                  여러 공고 중 하나를 선택하면 해당 공고에 대한 추천 지원자
-                  카드가 아래에 정렬됩니다.
-                </p>
-              </div>
-            </div>
-
-            <div className="card-grid jobs-grid">
-              {jobPostings.map((job) => (
-                <button
-                  key={job.id}
-                  className={`job-card selectable ${
-                    selectedJobId === job.id ? "selected" : ""
-                  }`}
-                  onClick={() => setSelectedJobId(job.id)}
-                >
-                  <div className="card-top-row">
-                    <Tag>{job.state}</Tag>
-                    <Tag>{job.category}</Tag>
-                  </div>
-                  <h3>{job.title}</h3>
-                  <div className="card-subtitle">{job.company}</div>
-                  <div className="card-meta">{job.location}</div>
-                  <p className="card-summary">{job.summary}</p>
-                </button>
-              ))}
-            </div>
-
-            <div className="selected-info">
-              <div className="selected-info-box">
-                <div className="selected-label">선택된 공고</div>
-                <div className="selected-title">{selectedJob.title}</div>
-                <div className="selected-subtitle">
-                  {selectedJob.company} · {selectedJob.location}
-                </div>
-                <div className="tag-row">
-                  <Tag>{selectedJob.category}</Tag>
-                  <Tag>{selectedJob.seniority}</Tag>
-                  <Tag>
-                    {selectedJob.koreanRequired
-                      ? "Korean Required"
-                      : "Korean Preferred"}
-                  </Tag>
-                </div>
-              </div>
-            </div>
-
-            <div className="section-head">
-              <div>
-                <h2>추천 지원자</h2>
-                <p>
-                  직무 키워드, 역할 적합도, 정착 적합도를 종합하여 정렬했습니다.
-                </p>
-              </div>
-            </div>
-
-            <div className="sort-control">
+        {mode === "admin" ? (
+          <>
+            <nav className="tab-nav">
               <button
-                className={`sort-btn ${sortMode === "total" ? "active" : ""}`}
-                onClick={() => setSortMode("total")}
+                className={`tab-btn ${adminTab === "matching" ? "active" : ""}`}
+                onClick={() => setAdminTab("matching")}
               >
-                종합 적합도순
+                매칭 대시보드
               </button>
               <button
-                className={`sort-btn ${sortMode === "skill" ? "active" : ""}`}
-                onClick={() => setSortMode("skill")}
+                className={`tab-btn ${adminTab === "talent" ? "active" : ""}`}
+                onClick={() => setAdminTab("talent")}
               >
-                직무 적합도순
+                인재 DB
               </button>
               <button
-                className={`sort-btn ${
-                  sortMode === "settlement" ? "active" : ""
-                }`}
-                onClick={() => setSortMode("settlement")}
+                className={`tab-btn ${adminTab === "jobs" ? "active" : ""}`}
+                onClick={() => setAdminTab("jobs")}
               >
-                정착 적합도순
+                공고 관리
               </button>
-            </div>
+            </nav>
 
-            <div className="card-grid candidate-grid">
-              {matchResults.map(({ candidate, match }, index) => (
-                <div key={candidate.id} className="candidate-card">
-                  <div className="card-top-row">
-                    <span className="rank-badge">추천 {index + 1}</span>
-                    <span className="candidate-id">{candidate.id}</span>
-                  </div>
+            {adminTab === "matching" && (
+              <section className="section-card">
+                <div className="section-head">
+                  <h2>매칭 대시보드</h2>
+                  <p>공고를 선택하면 직무 적합도와 정착 적합도를 기준으로 추천 인재를 확인할 수 있습니다.</p>
+                </div>
 
-                  <h3>{candidate.name}</h3>
-                  <div className="card-subtitle">
-                    {candidate.targetRole} · 경력 {candidate.experienceYears}년
-                  </div>
-                  <div className="card-meta">{candidate.residence}</div>
+                <div className="card-grid jobs-grid">
+                  {jobs.map((job) => (
+                    <button
+                      key={job.id}
+                      className={`job-card selectable ${
+                        selectedJobId === job.id ? "selected" : ""
+                      }`}
+                      onClick={() => setSelectedJobId(job.id)}
+                    >
+                      <div className="card-top-row">
+                        <Tag>{job.state}</Tag>
+                        <Tag>{job.category}</Tag>
+                      </div>
+                      <h3>{job.title}</h3>
+                      <div className="card-subtitle">{job.company}</div>
+                      <div className="card-meta">{job.location}</div>
+                      <p className="card-summary">{job.summary}</p>
+                    </button>
+                  ))}
+                </div>
 
-                  <MatchBar score={match.total} />
-
-                  <div className="score-row">
-                    <ScorePill label="직무" value={match.skillScore} />
-                    <ScorePill label="역할" value={match.roleScore} />
-                    <ScorePill label="정착" value={match.settlementScore} />
-                  </div>
-
-                  <div className="tag-row">
-                    {candidate.skills.slice(0, 5).map((skill) => (
-                      <Tag key={skill}>{skill}</Tag>
-                    ))}
-                  </div>
-
-                  <p className="card-summary">{candidate.notes}</p>
-
-                  <div className="reason-box">
-                    <div className="reason-title">추천 사유</div>
-                    <ul>
-                      {getMatchReason(candidate, selectedJob, match).map(
-                        (reason) => (
-                          <li key={reason}>{reason}</li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-
-                  <div className="risk-box">
-                    <div className="risk-title">정착 리스크</div>
-                    <ul>
-                      {match.risks.map((risk) => (
-                        <li key={risk}>{risk}</li>
-                      ))}
-                    </ul>
+                <div className="selected-info">
+                  <div className="selected-info-box">
+                    <div className="selected-label">선택된 공고</div>
+                    <div className="selected-title">{selectedJob.title}</div>
+                    <div className="selected-subtitle">
+                      {selectedJob.company} · {selectedJob.location}
+                    </div>
+                    <div className="tag-row">
+                      <Tag>{selectedJob.category}</Tag>
+                      <Tag>{selectedJob.seniority}</Tag>
+                      <Tag>{selectedJob.koreanRequired ? "Korean Required" : "Korean Preferred"}</Tag>
+                    </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
 
-        {activeTab === "jobs" && (
-          <section className="section-card">
-            <div className="section-head section-head-inline">
-              <div>
-                <h2>공고 모음</h2>
-                <p>
-                  미국 진출 한국기업 관련 공개 공고 샘플을 한눈에 확인할 수
-                  있습니다.
-                </p>
-              </div>
-              <div className="filter-wrap">
-                <input
-                  className="search-input"
-                  placeholder="회사명, 직무명, 지역, 키워드 검색"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-                <select
-                  className="state-select"
-                  value={stateFilter}
-                  onChange={(e) => setStateFilter(e.target.value)}
-                >
-                  <option value="ALL">전체 주</option>
-                  {[...new Set(jobPostings.map((job) => job.state))].map(
-                    (state) => (
+                <div className="section-head section-head-inline">
+                  <div>
+                    <h2>추천 인재</h2>
+                    <p>종합, 직무, 정착 기준으로 정렬해 후보자를 검토할 수 있습니다.</p>
+                  </div>
+                  <div className="sort-control">
+                    <button
+                      className={`sort-btn ${sortMode === "total" ? "active" : ""}`}
+                      onClick={() => setSortMode("total")}
+                    >
+                      종합 적합도순
+                    </button>
+                    <button
+                      className={`sort-btn ${sortMode === "skill" ? "active" : ""}`}
+                      onClick={() => setSortMode("skill")}
+                    >
+                      직무 적합도순
+                    </button>
+                    <button
+                      className={`sort-btn ${sortMode === "settlement" ? "active" : ""}`}
+                      onClick={() => setSortMode("settlement")}
+                    >
+                      정착 적합도순
+                    </button>
+                  </div>
+                </div>
+
+                <div className="card-grid candidate-grid">
+                  {matchResults.map(({ candidate, match }, index) => (
+                    <div key={candidate.id} className="candidate-card">
+                      <div className="card-top-row">
+                        <span className="rank-badge">추천 {index + 1}</span>
+                        <span className="candidate-id">{candidate.id}</span>
+                      </div>
+
+                      <h3>{candidate.name}</h3>
+                      <div className="card-subtitle">
+                        {candidate.targetRole} · 경력 {candidate.experienceYears}년
+                      </div>
+                      <div className="card-meta">{candidate.residence}</div>
+
+                      <MatchBar score={match.total} />
+
+                      <div className="score-row">
+                        <ScorePill label="직무" value={match.skillScore} />
+                        <ScorePill label="역할" value={match.roleScore} />
+                        <ScorePill label="정착" value={match.settlementScore} />
+                      </div>
+
+                      <div className="tag-row">
+                        {candidate.skills.slice(0, 5).map((skill) => (
+                          <Tag key={skill}>{skill}</Tag>
+                        ))}
+                      </div>
+
+                      <p className="card-summary">{candidate.notes}</p>
+
+                      <div className="reason-box">
+                        <div className="reason-title">추천 사유</div>
+                        <ul>
+                          {getMatchReason(candidate, selectedJob, match).map((reason) => (
+                            <li key={reason}>{reason}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="risk-box">
+                        <div className="risk-title">정착 리스크</div>
+                        <ul>
+                          {match.risks.map((risk) => (
+                            <li key={risk}>{risk}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {adminTab === "talent" && (
+              <section className="section-card">
+                <div className="section-head section-head-inline">
+                  <div>
+                    <h2>인재 DB</h2>
+                    <p>정착핏 테스트와 프로필 업로드를 통해 축적되는 후보자 데이터입니다.</p>
+                  </div>
+                  <button className="primary-btn" onClick={exportCandidates}>
+                    CSV 다운로드
+                  </button>
+                </div>
+
+                <div className="card-grid candidate-grid">
+                  {candidates.map((candidate) => (
+                    <div key={candidate.id} className="candidate-card">
+                      <div className="card-top-row">
+                        <Tag>{candidate.candidateType}</Tag>
+                        <span className="candidate-id">{candidate.id}</span>
+                      </div>
+                      <h3>{candidate.name}</h3>
+                      <div className="card-subtitle">
+                        {candidate.targetRole} · 경력 {candidate.experienceYears}년
+                      </div>
+                      <div className="card-meta">{candidate.residence}</div>
+
+                      <div className="info-grid">
+                        <div className="info-item">
+                          <div className="info-label">주거 선호</div>
+                          <div className="info-value">{candidate.urbanPreference}</div>
+                        </div>
+                        <div className="info-item">
+                          <div className="info-label">교육 중요도</div>
+                          <div className="info-value">{candidate.educationImportance}/7</div>
+                        </div>
+                        <div className="info-item">
+                          <div className="info-label">한국 방문</div>
+                          <div className="info-value">{candidate.koreaVisit}</div>
+                        </div>
+                        <div className="info-item">
+                          <div className="info-label">배우자 지원</div>
+                          <div className="info-value">
+                            {candidate.spouseESL ? "필요" : "해당 없음"}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="tag-row">
+                        {candidate.skills.map((skill) => (
+                          <Tag key={skill}>{skill}</Tag>
+                        ))}
+                      </div>
+                      <p className="card-summary">{candidate.notes}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {adminTab === "jobs" && (
+              <section className="section-card">
+                <div className="section-head section-head-inline">
+                  <div>
+                    <h2>공고 관리</h2>
+                    <p>매일 9시 자동 갱신을 가정한 공고 관리 화면입니다. 실제 서비스에서는 API, 크롤링, Google Sheet 연동으로 확장할 수 있습니다.</p>
+                  </div>
+                  <div className="button-row">
+                    <button className="secondary-btn" onClick={refreshJobs}>
+                      공고 갱신 시뮬레이션
+                    </button>
+                    <button className="primary-btn" onClick={exportJobs}>
+                      CSV 다운로드
+                    </button>
+                  </div>
+                </div>
+
+                <div className="admin-summary">
+                  <div>
+                    <strong>{jobs.length}</strong>
+                    <span>등록 공고</span>
+                  </div>
+                  <div>
+                    <strong>{lastRefresh}</strong>
+                    <span>마지막 갱신</span>
+                  </div>
+                  <div>
+                    <strong>09:00</strong>
+                    <span>예정 갱신 시간</span>
+                  </div>
+                </div>
+
+                <div className="card-grid jobs-grid">
+                  {jobs.map((job) => (
+                    <div key={job.id} className="job-card">
+                      <div className="card-top-row">
+                        <Tag>{job.state}</Tag>
+                        <Tag>{job.updatedAt}</Tag>
+                      </div>
+                      <h3>{job.title}</h3>
+                      <div className="card-subtitle">{job.company}</div>
+                      <div className="card-meta">
+                        {job.location} · {job.source}
+                      </div>
+                      <p className="card-summary">{job.summary}</p>
+                      <div className="tag-row">
+                        {job.keywords.slice(0, 6).map((keyword) => (
+                          <Tag key={keyword}>{keyword}</Tag>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+          </>
+        ) : (
+          <>
+            <nav className="tab-nav seeker-tabs">
+              <button
+                className={`tab-btn seeker-tab ${seekerTab === "fit" ? "active" : ""}`}
+                onClick={() => setSeekerTab("fit")}
+              >
+                정착핏 테스트
+              </button>
+              <button
+                className={`tab-btn seeker-tab ${seekerTab === "explore" ? "active" : ""}`}
+                onClick={() => setSeekerTab("explore")}
+              >
+                공고 탐색
+              </button>
+              <button
+                className={`tab-btn seeker-tab ${seekerTab === "profile" ? "active" : ""}`}
+                onClick={() => setSeekerTab("profile")}
+              >
+                프로필 업로드
+              </button>
+            </nav>
+
+            {seekerTab === "fit" && (
+              <section className="section-card seeker-card">
+                <div className="seeker-page-title">
+                  <div>
+                    <h2>정착핏 테스트</h2>
+                    <p>나에게 맞는 미국 근무지와 생활환경 찾기</p>
+                  </div>
+                  <span className="seeker-badge">지역 선호도 기반</span>
+                </div>
+
+                <div className="two-column-layout">
+                  <div className="form-panel">
+                    <label>
+                      이름
+                      <input
+                        value={fitForm.name}
+                        onChange={(e) => setFitForm({ ...fitForm, name: e.target.value })}
+                      />
+                    </label>
+
+                    <label>
+                      희망 직무
+                      <input
+                        value={fitForm.targetRole}
+                        onChange={(e) => setFitForm({ ...fitForm, targetRole: e.target.value })}
+                      />
+                    </label>
+
+                    <label>
+                      핵심 역량 키워드
+                      <input
+                        value={fitForm.skills}
+                        onChange={(e) => setFitForm({ ...fitForm, skills: e.target.value })}
+                      />
+                    </label>
+
+                    <label>
+                      선호 생활권
+                      <select
+                        value={fitForm.urbanPreference}
+                        onChange={(e) => setFitForm({ ...fitForm, urbanPreference: e.target.value })}
+                      >
+                        <option value="city">대도시형</option>
+                        <option value="suburb">교외 안정형</option>
+                        <option value="town">소도시/현장 적응형</option>
+                      </select>
+                    </label>
+
+                    <label>
+                      자녀 동반 여부
+                      <select
+                        value={fitForm.hasChild}
+                        onChange={(e) => setFitForm({ ...fitForm, hasChild: e.target.value })}
+                      >
+                        <option value="true">자녀 있음</option>
+                        <option value="false">자녀 없음</option>
+                      </select>
+                    </label>
+
+                    <label>
+                      교육환경 중요도
+                      <input
+                        type="range"
+                        min="1"
+                        max="7"
+                        value={fitForm.educationImportance}
+                        onChange={(e) => setFitForm({ ...fitForm, educationImportance: e.target.value })}
+                      />
+                      <span>{fitForm.educationImportance}/7</span>
+                    </label>
+
+                    <label>
+                      안전도 민감도
+                      <select
+                        value={fitForm.safetyTolerance}
+                        onChange={(e) => setFitForm({ ...fitForm, safetyTolerance: e.target.value })}
+                      >
+                        <option value="very_safe">매우 안전한 지역 선호</option>
+                        <option value="safe">안전한 지역 선호</option>
+                        <option value="average_ok">평균 수준이면 가능</option>
+                        <option value="risk_ok">기회가 좋으면 감수 가능</option>
+                      </select>
+                    </label>
+
+                    <label>
+                      주거비 선호
+                      <select
+                        value={fitForm.housingCost}
+                        onChange={(e) => setFitForm({ ...fitForm, housingCost: e.target.value })}
+                      >
+                        <option value="avg_minus_30">평균보다 30% 낮은 곳 선호</option>
+                        <option value="avg_minus_15">평균보다 15% 낮은 곳 선호</option>
+                        <option value="average">평균 수준 가능</option>
+                        <option value="avg_plus_15">평균보다 15% 높아도 가능</option>
+                      </select>
+                    </label>
+
+                    <button className="cta-btn" onClick={runFitTest}>
+                      정착핏 결과 보기
+                    </button>
+                  </div>
+
+                  <div className="result-panel">
+                    {!fitResult ? (
+                      <div className="empty-result">
+                        <h3>결과 미리보기</h3>
+                        <p>
+                          응답을 입력하면 정착 유형, 추천 공고, 정착 리스크가 자동으로 생성됩니다.
+                        </p>
+                      </div>
+                    ) : (
+                      <div>
+                        <div className="fit-type-card">
+                          <div className="fit-label">정착 유형</div>
+                          <h3>{fitResult.fitType}</h3>
+                          <p>
+                            입력한 생활환경 선호와 가족 조건을 기준으로 산출한 예비 정착 성향입니다.
+                          </p>
+                        </div>
+
+                        <h3 className="sub-title">추천 공고 TOP 3</h3>
+                        <div className="mini-list">
+                          {fitResult.rankedJobs.map(({ job, match }, index) => (
+                            <div key={job.id} className="mini-card">
+                              <div className="mini-rank">{index + 1}</div>
+                              <div>
+                                <strong>{job.title}</strong>
+                                <p>{job.company} · {job.location}</p>
+                                <span>종합 {match.total}% · 정착 {match.settlementScore}%</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <button className="secondary-btn wide" onClick={saveFitCandidate}>
+                          인재 DB에 임시 저장
+                        </button>
+                        {fitResult.saved && (
+                          <p className="save-message">인재 DB에 저장되었습니다.</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {seekerTab === "explore" && (
+              <section className="section-card seeker-card">
+                <div className="seeker-page-title">
+                  <div>
+                    <h2>공고 탐색</h2>
+                    <p>관심 키워드와 지역을 기준으로 미국 진출 한국기업 공고를 찾아보세요.</p>
+                  </div>
+                  <span className="seeker-badge">공개 공고 샘플</span>
+                </div>
+
+                <div className="filter-wrap seeker-filter">
+                  <input
+                    className="search-input"
+                    placeholder="회사명, 직무명, 지역, 키워드 검색"
+                    value={jobQuery}
+                    onChange={(e) => setJobQuery(e.target.value)}
+                  />
+                  <select
+                    className="state-select"
+                    value={stateFilter}
+                    onChange={(e) => setStateFilter(e.target.value)}
+                  >
+                    <option value="ALL">전체 주</option>
+                    {[...new Set(jobs.map((job) => job.state))].map((state) => (
                       <option key={state} value={state}>
                         {state}
                       </option>
-                    )
-                  )}
-                </select>
-              </div>
-            </div>
-
-            <div className="card-grid jobs-grid">
-              {filteredJobs.map((job) => (
-                <div key={job.id} className="job-card">
-                  <div className="card-top-row">
-                    <Tag>{job.state}</Tag>
-                    <Tag>{job.category}</Tag>
-                  </div>
-                  <h3>{job.title}</h3>
-                  <div className="card-subtitle">{job.company}</div>
-                  <div className="card-meta">
-                    {job.location} · {job.source}
-                  </div>
-                  <p className="card-summary">{job.summary}</p>
-
-                  <div className="tag-row">
-                    {job.keywords.slice(0, 6).map((keyword) => (
-                      <Tag key={keyword}>{keyword}</Tag>
                     ))}
-                  </div>
+                  </select>
                 </div>
-              ))}
-            </div>
-          </section>
-        )}
 
-        {activeTab === "candidates" && (
-          <section className="section-card">
-            <div className="section-head">
-              <div>
-                <h2>지원자 데이터 (가상)</h2>
-                <p>
-                  설문 기반 가상 후보자 데이터를 포토카드형으로 정리한 화면입니다.
-                </p>
-              </div>
-            </div>
-
-            <div className="card-grid candidate-grid">
-              {candidates.map((candidate) => (
-                <div key={candidate.id} className="candidate-card">
-                  <div className="card-top-row">
-                    <Tag>{candidate.hasChild ? "자녀 있음" : "자녀 없음"}</Tag>
-                    <span className="candidate-id">{candidate.id}</span>
-                  </div>
-
-                  <h3>{candidate.name}</h3>
-                  <div className="card-subtitle">
-                    {candidate.targetRole} · 경력 {candidate.experienceYears}년
-                  </div>
-                  <div className="card-meta">{candidate.residence}</div>
-
-                  <div className="info-grid">
-                    <div className="info-item">
-                      <div className="info-label">주거 선호</div>
-                      <div className="info-value">{candidate.urbanPreference}</div>
-                    </div>
-                    <div className="info-item">
-                      <div className="info-label">교육 중요도</div>
-                      <div className="info-value">
-                        {candidate.educationImportance}/7
+                <div className="card-grid jobs-grid">
+                  {filteredJobs.map((job) => (
+                    <div key={job.id} className="job-card seeker-job-card">
+                      <div className="card-top-row">
+                        <Tag>{job.state}</Tag>
+                        <Tag>{job.category}</Tag>
+                      </div>
+                      <h3>{job.title}</h3>
+                      <div className="card-subtitle">{job.company}</div>
+                      <div className="card-meta">{job.location}</div>
+                      <p className="card-summary">{job.summary}</p>
+                      <div className="tag-row">
+                        {job.keywords.slice(0, 6).map((keyword) => (
+                          <Tag key={keyword}>{keyword}</Tag>
+                        ))}
+                      </div>
+                      <div className="card-actions">
+                        <button className="cta-btn small" onClick={() => setSeekerTab("fit")}>
+                          정착핏 확인
+                        </button>
+                        <button className="outline-btn small" onClick={() => setSeekerTab("profile")}>
+                          프로필로 매칭
+                        </button>
                       </div>
                     </div>
-                    <div className="info-item">
-                      <div className="info-label">한국 방문</div>
-                      <div className="info-value">{candidate.koreaVisit}</div>
-                    </div>
-                    <div className="info-item">
-                      <div className="info-label">배우자 지원</div>
-                      <div className="info-value">
-                        {candidate.spouseESL ? "필요" : "해당 없음"}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="tag-row">
-                    {candidate.skills.map((skill) => (
-                      <Tag key={skill}>{skill}</Tag>
-                    ))}
-                  </div>
-
-                  <p className="card-summary">{candidate.notes}</p>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </section>
+              </section>
+            )}
+
+            {seekerTab === "profile" && (
+              <section className="section-card seeker-card">
+                <div className="seeker-page-title">
+                  <div>
+                    <h2>프로필 업로드</h2>
+                    <p>이력서를 기반으로 맞춤 공고를 추천받기</p>
+                  </div>
+                  <span className="seeker-badge">Resume Scan Mock</span>
+                </div>
+
+                <div className="two-column-layout">
+                  <div className="form-panel">
+                    <label>
+                      이름
+                      <input
+                        value={profileForm.name}
+                        onChange={(e) =>
+                          setProfileForm({ ...profileForm, name: e.target.value })
+                        }
+                        placeholder="예: 홍길동"
+                      />
+                    </label>
+
+                    <label>
+                      희망 직무
+                      <input
+                        value={profileForm.targetRole}
+                        onChange={(e) =>
+                          setProfileForm({
+                            ...profileForm,
+                            targetRole: e.target.value
+                          })
+                        }
+                        placeholder="예: Battery Engineer"
+                      />
+                    </label>
+
+                    <label>
+                      경력 연차
+                      <input
+                        type="number"
+                        value={profileForm.years}
+                        onChange={(e) =>
+                          setProfileForm({ ...profileForm, years: e.target.value })
+                        }
+                      />
+                    </label>
+
+                    <label>
+                      핵심 역량 키워드
+                      <input
+                        value={profileForm.skills}
+                        onChange={(e) =>
+                          setProfileForm({ ...profileForm, skills: e.target.value })
+                        }
+                        placeholder="예: battery, manufacturing, korean"
+                      />
+                    </label>
+
+                    <label>
+                      CV/Resume 파일
+                      <input
+                        type="file"
+                        onChange={(e) =>
+                          setProfileForm({
+                            ...profileForm,
+                            fileName: e.target.files?.[0]?.name || ""
+                          })
+                        }
+                      />
+                    </label>
+
+                    <button className="cta-btn" onClick={analyzeProfile}>
+                      AI 프로필 분석하기
+                    </button>
+                  </div>
+
+                  <div className="result-panel">
+                    {!profileResult ? (
+                      <div className="empty-result">
+                        <h3>프로필 분석 결과</h3>
+                        <p>
+                          업로드된 이력서와 입력 정보를 기반으로 후보자 프로필을 생성하고 맞춤 공고를 추천합니다.
+                        </p>
+                      </div>
+                    ) : (
+                      <div>
+                        <div className="fit-type-card">
+                          <div className="fit-label">생성된 후보자 프로필</div>
+                          <h3>{profileResult.candidate.name}</h3>
+                          <p>
+                            {profileResult.candidate.targetRole} · 경력{" "}
+                            {profileResult.candidate.experienceYears}년 ·{" "}
+                            {profileResult.candidate.skills.join(", ")}
+                          </p>
+                        </div>
+
+                        <h3 className="sub-title">맞춤 공고 TOP 3</h3>
+                        <div className="mini-list">
+                          {profileResult.rankedJobs.map(({ job, match }, index) => (
+                            <div key={job.id} className="mini-card">
+                              <div className="mini-rank">{index + 1}</div>
+                              <div>
+                                <strong>{job.title}</strong>
+                                <p>{job.company} · {job.location}</p>
+                                <span>종합 {match.total}% · 직무 {match.skillScore}%</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+
+                        <p className="save-message">인재 DB에 임시 등록되었습니다.</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </section>
+            )}
+          </>
         )}
 
         <footer className="footer-note">
-          본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 공식 채용
-          데이터, 기업 입력 데이터, 지역 생활환경 데이터 등을 연동해 고도화할 수
-          있습니다.
+          본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 공식 채용 데이터,
+          기업 입력 데이터, 이력서 파싱 데이터, 지역 생활환경 데이터를 연동해 고도화할 수 있습니다.
         </footer>
       </div>
     </div>
