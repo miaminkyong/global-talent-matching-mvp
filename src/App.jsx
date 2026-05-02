@@ -10,9 +10,27 @@ const initialJobs = [
     category: "Smart Factory / Battery",
     seniority: "Mid",
     koreanRequired: true,
-    keywords: ["battery", "smart factory", "automation", "PLC", "python", "data analytics", "korean"],
-    regionProfile: { cityLife: 2, cost: 5, safety: 3, school: 3, diversity: 2, koreanCommunity: 2, familyFit: 5, directFlight: 2 },
-    summary: "배터리 제조 공정과 스마트팩토리 자동화 역량을 요구하는 한영 바이링구얼 엔지니어 포지션",
+    keywords: [
+      "battery",
+      "smart factory",
+      "automation",
+      "PLC",
+      "python",
+      "data analytics",
+      "korean"
+    ],
+    regionProfile: {
+      cityLife: 2,
+      cost: 5,
+      safety: 3,
+      school: 3,
+      diversity: 2,
+      koreanCommunity: 2,
+      familyFit: 5,
+      directFlight: 2
+    },
+    summary:
+      "배터리 제조 공정과 스마트팩토리 자동화 역량을 요구하는 한영 바이링구얼 엔지니어 포지션",
     source: "공개 공고 기반 샘플",
     updatedAt: "오늘 09:00"
   },
@@ -25,9 +43,27 @@ const initialJobs = [
     category: "Manufacturing Equipment",
     seniority: "Mid",
     koreanRequired: false,
-    keywords: ["equipment", "manufacturing", "logistics", "battery", "electronics", "autocad", "PLC"],
-    regionProfile: { cityLife: 2, cost: 4, safety: 3, school: 3, diversity: 2, koreanCommunity: 2, familyFit: 4, directFlight: 2 },
-    summary: "제조·물류 장비 이해와 현장 대응 역량을 요구하는 배터리/전자 제조 기반 엔지니어 포지션",
+    keywords: [
+      "equipment",
+      "manufacturing",
+      "logistics",
+      "battery",
+      "electronics",
+      "autocad",
+      "PLC"
+    ],
+    regionProfile: {
+      cityLife: 2,
+      cost: 4,
+      safety: 3,
+      school: 3,
+      diversity: 2,
+      koreanCommunity: 2,
+      familyFit: 4,
+      directFlight: 2
+    },
+    summary:
+      "제조·물류 장비 이해와 현장 대응 역량을 요구하는 배터리/전자 제조 기반 엔지니어 포지션",
     source: "공개 공고 기반 샘플",
     updatedAt: "오늘 09:00"
   },
@@ -40,9 +76,26 @@ const initialJobs = [
     category: "Automation / Field Service",
     seniority: "Junior-Mid",
     koreanRequired: true,
-    keywords: ["field service", "automation", "maintenance", "production support", "customer", "korean"],
-    regionProfile: { cityLife: 2, cost: 4, safety: 3, school: 3, diversity: 2, koreanCommunity: 2, familyFit: 4, directFlight: 2 },
-    summary: "자동화 물류 장비 유지보수와 고객사 현장 대응을 담당하는 한영 바이링구얼 엔지니어 포지션",
+    keywords: [
+      "field service",
+      "automation",
+      "maintenance",
+      "production support",
+      "customer",
+      "korean"
+    ],
+    regionProfile: {
+      cityLife: 2,
+      cost: 4,
+      safety: 3,
+      school: 3,
+      diversity: 2,
+      koreanCommunity: 2,
+      familyFit: 4,
+      directFlight: 2
+    },
+    summary:
+      "자동화 물류 장비 유지보수와 고객사 현장 대응을 담당하는 한영 바이링구얼 엔지니어 포지션",
     source: "공개 공고 기반 샘플",
     updatedAt: "오늘 09:00"
   },
@@ -55,9 +108,26 @@ const initialJobs = [
     category: "Finance / Controller",
     seniority: "Senior",
     koreanRequired: true,
-    keywords: ["finance", "controller", "accounting", "compliance", "korean", "english"],
-    regionProfile: { cityLife: 4, cost: 3, safety: 4, school: 4, diversity: 4, koreanCommunity: 3, familyFit: 4, directFlight: 4 },
-    summary: "미국 법인 재무관리와 내부통제 경험을 요구하는 현지 채용 기반 컨트롤러 포지션",
+    keywords: [
+      "finance",
+      "controller",
+      "accounting",
+      "compliance",
+      "korean",
+      "english"
+    ],
+    regionProfile: {
+      cityLife: 4,
+      cost: 3,
+      safety: 4,
+      school: 4,
+      diversity: 4,
+      koreanCommunity: 3,
+      familyFit: 4,
+      directFlight: 4
+    },
+    summary:
+      "미국 법인 재무관리와 내부통제 경험을 요구하는 현지 채용 기반 컨트롤러 포지션",
     source: "공개 공고 기반 샘플",
     updatedAt: "오늘 09:00"
   },
@@ -71,8 +141,18 @@ const initialJobs = [
     seniority: "Junior",
     koreanRequired: true,
     keywords: ["accounting", "finance", "excel", "erp", "korean", "bilingual"],
-    regionProfile: { cityLife: 5, cost: 1, safety: 4, school: 4, diversity: 5, koreanCommunity: 5, familyFit: 3, directFlight: 5 },
-    summary: "한인 인프라가 강한 캘리포니아 지역의 회계·재무 주니어 포지션",
+    regionProfile: {
+      cityLife: 5,
+      cost: 1,
+      safety: 4,
+      school: 4,
+      diversity: 5,
+      koreanCommunity: 5,
+      familyFit: 3,
+      directFlight: 5
+    },
+    summary:
+      "한인 인프라가 강한 캘리포니아 지역의 회계·재무 주니어 포지션",
     source: "공개 공고 기반 샘플",
     updatedAt: "오늘 09:00"
   },
@@ -85,9 +165,26 @@ const initialJobs = [
     category: "Marketing / Operations",
     seniority: "Junior-Mid",
     koreanRequired: false,
-    keywords: ["marketing", "operations", "excel", "google sheets", "communication", "korean preferred"],
-    regionProfile: { cityLife: 5, cost: 2, safety: 4, school: 4, diversity: 5, koreanCommunity: 5, familyFit: 4, directFlight: 5 },
-    summary: "뉴저지 한인 인프라와 직항 접근성이 강한 마케팅·오퍼레이션 포지션",
+    keywords: [
+      "marketing",
+      "operations",
+      "excel",
+      "google sheets",
+      "communication",
+      "korean preferred"
+    ],
+    regionProfile: {
+      cityLife: 5,
+      cost: 2,
+      safety: 4,
+      school: 4,
+      diversity: 5,
+      koreanCommunity: 5,
+      familyFit: 4,
+      directFlight: 5
+    },
+    summary:
+      "뉴저지 한인 인프라와 직항 접근성이 강한 마케팅·오퍼레이션 포지션",
     source: "공개 공고 기반 샘플",
     updatedAt: "오늘 09:00"
   }
@@ -346,12 +443,15 @@ function scoreMatch(candidate, job) {
 
   const risks = [];
   if (candidate.hasChild && r.school < 4) risks.push("자녀 교육환경 확인 필요");
-  if (prefMap[candidate.housingCost] > r.cost + 1)
+  if ((prefMap[candidate.housingCost] || 3) > r.cost + 1) {
     risks.push("생활비 기대치 대비 부담 가능성");
-  if (candidate.koreaVisit.includes("direct") && r.directFlight < 4)
+  }
+  if (candidate.koreaVisit.includes("direct") && r.directFlight < 4) {
     risks.push("한국 방문 접근성 점검 필요");
-  if (candidate.spouseESL && r.koreanCommunity < 3)
+  }
+  if (candidate.spouseESL && r.koreanCommunity < 3) {
     risks.push("배우자 지원 인프라 확인 필요");
+  }
   if (risks.length === 0) risks.push("주요 정착 리스크 낮음");
 
   return {
@@ -417,7 +517,7 @@ function downloadCSV(filename, rows) {
       headers
         .map((field) => {
           const value = row[field] ?? "";
-          return `"${String(value).replaceAll('"', '""')}"`;
+          return `"${String(value).replaceAll('"', '""')}"`
         })
         .join(",")
     )
@@ -471,6 +571,16 @@ export default function App() {
   const [stateFilter, setStateFilter] = useState("ALL");
   const [lastRefresh, setLastRefresh] = useState("오늘 09:00");
 
+  const [editingCandidateId, setEditingCandidateId] = useState(null);
+  const [editForm, setEditForm] = useState({
+    name: "",
+    targetRole: "",
+    experienceYears: "",
+    residence: "",
+    skills: "",
+    notes: ""
+  });
+
   const [fitForm, setFitForm] = useState({
     name: "테스트 지원자",
     targetRole: "Battery Engineer",
@@ -497,79 +607,7 @@ export default function App() {
   });
 
   const [profileResult, setProfileResult] = useState(null);
-const [editingCandidateId, setEditingCandidateId] = useState(null);
-const [editForm, setEditForm] = useState({
-  name: "",
-  targetRole: "",
-  experienceYears: "",
-  residence: "",
-  skills: "",
-  notes: ""
-});
-  function startEditCandidate(candidate) {
-  setEditingCandidateId(candidate.id);
-  setEditForm({
-    name: candidate.name,
-    targetRole: candidate.targetRole,
-    experienceYears: candidate.experienceYears,
-    residence: candidate.residence,
-    skills: candidate.skills.join(", "),
-    notes: candidate.notes
-  });
-}
 
-function cancelEditCandidate() {
-  setEditingCandidateId(null);
-  setEditForm({
-    name: "",
-    targetRole: "",
-    experienceYears: "",
-    residence: "",
-    skills: "",
-    notes: ""
-  });
-}
-
-function saveEditCandidate(candidateId) {
-  setCandidates((prev) =>
-    prev.map((candidate) => {
-      if (candidate.id !== candidateId) return candidate;
-
-      return {
-        ...candidate,
-        name: editForm.name || "이름 미입력",
-        targetRole: editForm.targetRole || "Open Position",
-        experienceYears: Number(editForm.experienceYears) || 0,
-        residence: editForm.residence || "미입력",
-        skills: editForm.skills
-          .split(",")
-          .map((skill) => skill.trim())
-          .filter(Boolean),
-        notes: editForm.notes || "관리자 수정 후보자 프로필"
-      };
-    })
-  );
-
-  cancelEditCandidate();
-}
-
-function deleteCandidate(candidateId) {
-  const target = candidates.find((candidate) => candidate.id === candidateId);
-  const ok = window.confirm(
-    `${target?.name || "선택한 후보자"} 데이터를 삭제할까요?`
-  );
-
-  if (!ok) return;
-
-  setCandidates((prev) =>
-    prev.filter((candidate) => candidate.id !== candidateId)
-  );
-
-  if (editingCandidateId === candidateId) {
-    cancelEditCandidate();
-  }
-}
-  
   const selectedJob = jobs.find((job) => job.id === selectedJobId) || jobs[0];
 
   const matchResults = useMemo(() => {
@@ -580,8 +618,9 @@ function deleteCandidate(candidateId) {
       }))
       .sort((a, b) => {
         if (sortMode === "skill") return b.match.skillScore - a.match.skillScore;
-        if (sortMode === "settlement")
+        if (sortMode === "settlement") {
           return b.match.settlementScore - a.match.settlementScore;
+        }
         return b.match.total - a.match.total;
       });
   }, [candidates, selectedJob, sortMode]);
@@ -610,9 +649,9 @@ function deleteCandidate(candidateId) {
   function buildFitCandidate() {
     return {
       id: "TEST",
-      name: fitForm.name,
+      name: fitForm.name || "이름 미입력",
       residence: fitForm.residence,
-      targetRole: fitForm.targetRole,
+      targetRole: fitForm.targetRole || "Open Position",
       skills: fitForm.skills
         .split(",")
         .map((s) => s.trim())
@@ -644,7 +683,8 @@ function deleteCandidate(candidateId) {
     setFitResult({
       candidate,
       fitType: getFitType(candidate),
-      rankedJobs
+      rankedJobs,
+      saved: false
     });
   }
 
@@ -654,8 +694,9 @@ function deleteCandidate(candidateId) {
       ...candidate,
       id: `C${String(candidates.length + 1).padStart(3, "0")}`
     };
+
     setCandidates((prev) => [newCandidate, ...prev]);
-    setFitResult((prev) => prev && { ...prev, saved: true });
+    setFitResult((prev) => (prev ? { ...prev, saved: true } : prev));
   }
 
   function analyzeProfile() {
@@ -670,7 +711,7 @@ function deleteCandidate(candidateId) {
       residence: "대한민국",
       targetRole: profileForm.targetRole || "Open Position",
       skills: skills.length ? skills : ["korean", "excel", "communication"],
-      experienceYears: Number(profileForm.years),
+      experienceYears: Number(profileForm.years) || 0,
       urbanPreference: "suburb",
       hasChild: false,
       educationImportance: 2,
@@ -700,6 +741,7 @@ function deleteCandidate(candidateId) {
     const label = `오늘 ${String(now.getHours()).padStart(2, "0")}:${String(
       now.getMinutes()
     ).padStart(2, "0")}`;
+
     setLastRefresh(label);
     setJobs((prev) => prev.map((job) => ({ ...job, updatedAt: label })));
   }
@@ -719,6 +761,7 @@ function deleteCandidate(candidateId) {
       housingCost: c.housingCost,
       notes: c.notes
     }));
+
     downloadCSV("talent-db.csv", rows);
   }
 
@@ -736,7 +779,72 @@ function deleteCandidate(candidateId) {
       source: j.source,
       updatedAt: j.updatedAt
     }));
+
     downloadCSV("job-postings.csv", rows);
+  }
+
+  function startEditCandidate(candidate) {
+    setEditingCandidateId(candidate.id);
+    setEditForm({
+      name: candidate.name,
+      targetRole: candidate.targetRole,
+      experienceYears: candidate.experienceYears,
+      residence: candidate.residence,
+      skills: candidate.skills.join(", "),
+      notes: candidate.notes
+    });
+  }
+
+  function cancelEditCandidate() {
+    setEditingCandidateId(null);
+    setEditForm({
+      name: "",
+      targetRole: "",
+      experienceYears: "",
+      residence: "",
+      skills: "",
+      notes: ""
+    });
+  }
+
+  function saveEditCandidate(candidateId) {
+    setCandidates((prev) =>
+      prev.map((candidate) => {
+        if (candidate.id !== candidateId) return candidate;
+
+        return {
+          ...candidate,
+          name: editForm.name || "이름 미입력",
+          targetRole: editForm.targetRole || "Open Position",
+          experienceYears: Number(editForm.experienceYears) || 0,
+          residence: editForm.residence || "미입력",
+          skills: editForm.skills
+            .split(",")
+            .map((skill) => skill.trim())
+            .filter(Boolean),
+          notes: editForm.notes || "관리자 수정 후보자 프로필"
+        };
+      })
+    );
+
+    cancelEditCandidate();
+  }
+
+  function deleteCandidate(candidateId) {
+    const target = candidates.find((candidate) => candidate.id === candidateId);
+    const ok = window.confirm(
+      `${target?.name || "선택한 후보자"} 데이터를 삭제할까요?`
+    );
+
+    if (!ok) return;
+
+    setCandidates((prev) =>
+      prev.filter((candidate) => candidate.id !== candidateId)
+    );
+
+    if (editingCandidateId === candidateId) {
+      cancelEditCandidate();
+    }
   }
 
   return (
@@ -808,7 +916,10 @@ function deleteCandidate(candidateId) {
               <section className="section-card">
                 <div className="section-head">
                   <h2>매칭 대시보드</h2>
-                  <p>공고를 선택하면 직무 적합도와 정착 적합도를 기준으로 추천 인재를 확인할 수 있습니다.</p>
+                  <p>
+                    공고를 선택하면 직무 적합도와 정착 적합도를 기준으로 추천
+                    인재를 확인할 수 있습니다.
+                  </p>
                 </div>
 
                 <div className="card-grid jobs-grid">
@@ -842,7 +953,11 @@ function deleteCandidate(candidateId) {
                     <div className="tag-row">
                       <Tag>{selectedJob.category}</Tag>
                       <Tag>{selectedJob.seniority}</Tag>
-                      <Tag>{selectedJob.koreanRequired ? "Korean Required" : "Korean Preferred"}</Tag>
+                      <Tag>
+                        {selectedJob.koreanRequired
+                          ? "Korean Required"
+                          : "Korean Preferred"}
+                      </Tag>
                     </div>
                   </div>
                 </div>
@@ -850,23 +965,32 @@ function deleteCandidate(candidateId) {
                 <div className="section-head section-head-inline">
                   <div>
                     <h2>추천 인재</h2>
-                    <p>종합, 직무, 정착 기준으로 정렬해 후보자를 검토할 수 있습니다.</p>
+                    <p>
+                      종합, 직무, 정착 기준으로 정렬해 후보자를 검토할 수
+                      있습니다.
+                    </p>
                   </div>
                   <div className="sort-control">
                     <button
-                      className={`sort-btn ${sortMode === "total" ? "active" : ""}`}
+                      className={`sort-btn ${
+                        sortMode === "total" ? "active" : ""
+                      }`}
                       onClick={() => setSortMode("total")}
                     >
                       종합 적합도순
                     </button>
                     <button
-                      className={`sort-btn ${sortMode === "skill" ? "active" : ""}`}
+                      className={`sort-btn ${
+                        sortMode === "skill" ? "active" : ""
+                      }`}
                       onClick={() => setSortMode("skill")}
                     >
                       직무 적합도순
                     </button>
                     <button
-                      className={`sort-btn ${sortMode === "settlement" ? "active" : ""}`}
+                      className={`sort-btn ${
+                        sortMode === "settlement" ? "active" : ""
+                      }`}
                       onClick={() => setSortMode("settlement")}
                     >
                       정착 적합도순
@@ -907,9 +1031,11 @@ function deleteCandidate(candidateId) {
                       <div className="reason-box">
                         <div className="reason-title">추천 사유</div>
                         <ul>
-                          {getMatchReason(candidate, selectedJob, match).map((reason) => (
-                            <li key={reason}>{reason}</li>
-                          ))}
+                          {getMatchReason(candidate, selectedJob, match).map(
+                            (reason) => (
+                              <li key={reason}>{reason}</li>
+                            )
+                          )}
                         </ul>
                       </div>
 
@@ -932,7 +1058,11 @@ function deleteCandidate(candidateId) {
                 <div className="section-head section-head-inline">
                   <div>
                     <h2>인재 DB</h2>
-                    <p>정착핏 테스트와 프로필 업로드를 통해 축적되는 후보자 데이터입니다.</p>
+                    <p>
+                      정착핏 테스트와 프로필 업로드를 통해 축적되는 후보자
+                      데이터입니다. 관리자가 후보자 정보를 수동으로 수정하거나
+                      삭제할 수 있습니다.
+                    </p>
                   </div>
                   <button className="primary-btn" onClick={exportCandidates}>
                     CSV 다운로드
@@ -940,159 +1070,175 @@ function deleteCandidate(candidateId) {
                 </div>
 
                 <div className="card-grid candidate-grid">
-  {candidates.map((candidate) => {
-    const isEditing = editingCandidateId === candidate.id;
+                  {candidates.map((candidate) => {
+                    const isEditing = editingCandidateId === candidate.id;
 
-    return (
-      <div key={candidate.id} className="candidate-card">
-        <div className="card-top-row">
-          <Tag>{candidate.candidateType}</Tag>
-          <span className="candidate-id">{candidate.id}</span>
-        </div>
+                    return (
+                      <div key={candidate.id} className="candidate-card">
+                        <div className="card-top-row">
+                          <Tag>{candidate.candidateType}</Tag>
+                          <span className="candidate-id">{candidate.id}</span>
+                        </div>
 
-        {!isEditing ? (
-          <>
-            <h3>{candidate.name}</h3>
-            <div className="card-subtitle">
-              {candidate.targetRole} · 경력 {candidate.experienceYears}년
-            </div>
-            <div className="card-meta">{candidate.residence}</div>
+                        {!isEditing ? (
+                          <>
+                            <h3>{candidate.name}</h3>
+                            <div className="card-subtitle">
+                              {candidate.targetRole} · 경력{" "}
+                              {candidate.experienceYears}년
+                            </div>
+                            <div className="card-meta">{candidate.residence}</div>
 
-            <div className="info-grid">
-              <div className="info-item">
-                <div className="info-label">주거 선호</div>
-                <div className="info-value">{candidate.urbanPreference}</div>
-              </div>
-              <div className="info-item">
-                <div className="info-label">교육 중요도</div>
-                <div className="info-value">
-                  {candidate.educationImportance}/7
-                </div>
-              </div>
-              <div className="info-item">
-                <div className="info-label">한국 방문</div>
-                <div className="info-value">{candidate.koreaVisit}</div>
-              </div>
-              <div className="info-item">
-                <div className="info-label">배우자 지원</div>
-                <div className="info-value">
-                  {candidate.spouseESL ? "필요" : "해당 없음"}
-                </div>
-              </div>
-            </div>
+                            <div className="info-grid">
+                              <div className="info-item">
+                                <div className="info-label">주거 선호</div>
+                                <div className="info-value">
+                                  {candidate.urbanPreference}
+                                </div>
+                              </div>
+                              <div className="info-item">
+                                <div className="info-label">교육 중요도</div>
+                                <div className="info-value">
+                                  {candidate.educationImportance}/7
+                                </div>
+                              </div>
+                              <div className="info-item">
+                                <div className="info-label">한국 방문</div>
+                                <div className="info-value">
+                                  {candidate.koreaVisit}
+                                </div>
+                              </div>
+                              <div className="info-item">
+                                <div className="info-label">배우자 지원</div>
+                                <div className="info-value">
+                                  {candidate.spouseESL ? "필요" : "해당 없음"}
+                                </div>
+                              </div>
+                            </div>
 
-            <div className="tag-row">
-              {candidate.skills.map((skill) => (
-                <Tag key={skill}>{skill}</Tag>
-              ))}
-            </div>
+                            <div className="tag-row">
+                              {candidate.skills.map((skill) => (
+                                <Tag key={skill}>{skill}</Tag>
+                              ))}
+                            </div>
 
-            <p className="card-summary">{candidate.notes}</p>
+                            <p className="card-summary">{candidate.notes}</p>
 
-            <div className="db-action-row">
-              <button
-                className="db-edit-btn"
-                onClick={() => startEditCandidate(candidate)}
-              >
-                수정
-              </button>
-              <button
-                className="db-delete-btn"
-                onClick={() => deleteCandidate(candidate.id)}
-              >
-                삭제
-              </button>
-            </div>
-          </>
-        ) : (
-          <div className="edit-panel">
-            <label>
-              이름
-              <input
-                value={editForm.name}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, name: e.target.value })
-                }
-              />
-            </label>
+                            <div className="db-action-row">
+                              <button
+                                className="db-edit-btn"
+                                onClick={() => startEditCandidate(candidate)}
+                              >
+                                수정
+                              </button>
+                              <button
+                                className="db-delete-btn"
+                                onClick={() => deleteCandidate(candidate.id)}
+                              >
+                                삭제
+                              </button>
+                            </div>
+                          </>
+                        ) : (
+                          <div className="edit-panel">
+                            <label>
+                              이름
+                              <input
+                                value={editForm.name}
+                                onChange={(e) =>
+                                  setEditForm({
+                                    ...editForm,
+                                    name: e.target.value
+                                  })
+                                }
+                              />
+                            </label>
 
-            <label>
-              희망 직무
-              <input
-                value={editForm.targetRole}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, targetRole: e.target.value })
-                }
-              />
-            </label>
+                            <label>
+                              희망 직무
+                              <input
+                                value={editForm.targetRole}
+                                onChange={(e) =>
+                                  setEditForm({
+                                    ...editForm,
+                                    targetRole: e.target.value
+                                  })
+                                }
+                              />
+                            </label>
 
-            <label>
-              경력 연차
-              <input
-                type="number"
-                value={editForm.experienceYears}
-                onChange={(e) =>
-                  setEditForm({
-                    ...editForm,
-                    experienceYears: e.target.value
-                  })
-                }
-              />
-            </label>
+                            <label>
+                              경력 연차
+                              <input
+                                type="number"
+                                value={editForm.experienceYears}
+                                onChange={(e) =>
+                                  setEditForm({
+                                    ...editForm,
+                                    experienceYears: e.target.value
+                                  })
+                                }
+                              />
+                            </label>
 
-            <label>
-              거주지
-              <input
-                value={editForm.residence}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, residence: e.target.value })
-                }
-              />
-            </label>
+                            <label>
+                              거주지
+                              <input
+                                value={editForm.residence}
+                                onChange={(e) =>
+                                  setEditForm({
+                                    ...editForm,
+                                    residence: e.target.value
+                                  })
+                                }
+                              />
+                            </label>
 
-            <label>
-              핵심 역량
-              <input
-                value={editForm.skills}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, skills: e.target.value })
-                }
-              />
-            </label>
+                            <label>
+                              핵심 역량
+                              <input
+                                value={editForm.skills}
+                                onChange={(e) =>
+                                  setEditForm({
+                                    ...editForm,
+                                    skills: e.target.value
+                                  })
+                                }
+                              />
+                            </label>
 
-            <label>
-              메모
-              <textarea
-                value={editForm.notes}
-                onChange={(e) =>
-                  setEditForm({ ...editForm, notes: e.target.value })
-                }
-              />
-            </label>
+                            <label>
+                              메모
+                              <textarea
+                                value={editForm.notes}
+                                onChange={(e) =>
+                                  setEditForm({
+                                    ...editForm,
+                                    notes: e.target.value
+                                  })
+                                }
+                              />
+                            </label>
 
-            <div className="db-action-row">
-              <button
-                className="db-save-btn"
-                onClick={() => saveEditCandidate(candidate.id)}
-              >
-                저장
-              </button>
-              <button
-                className="db-cancel-btn"
-                onClick={cancelEditCandidate}
-              >
-                취소
-              </button>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  })}
-</div>
-                      <p className="card-summary">{candidate.notes}</p>
-                    </div>
-                  ))}
+                            <div className="db-action-row">
+                              <button
+                                className="db-save-btn"
+                                onClick={() => saveEditCandidate(candidate.id)}
+                              >
+                                저장
+                              </button>
+                              <button
+                                className="db-cancel-btn"
+                                onClick={cancelEditCandidate}
+                              >
+                                취소
+                              </button>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </section>
             )}
@@ -1102,7 +1248,11 @@ function deleteCandidate(candidateId) {
                 <div className="section-head section-head-inline">
                   <div>
                     <h2>공고 관리</h2>
-                    <p>매일 9시 자동 갱신을 가정한 공고 관리 화면입니다. 실제 서비스에서는 API, 크롤링, Google Sheet 연동으로 확장할 수 있습니다.</p>
+                    <p>
+                      매일 9시 자동 갱신을 가정한 공고 관리 화면입니다. 실제
+                      서비스에서는 API, 크롤링, Google Sheet 연동으로 확장할 수
+                      있습니다.
+                    </p>
                   </div>
                   <div className="button-row">
                     <button className="secondary-btn" onClick={refreshJobs}>
@@ -1157,19 +1307,25 @@ function deleteCandidate(candidateId) {
           <>
             <nav className="tab-nav seeker-tabs">
               <button
-                className={`tab-btn seeker-tab ${seekerTab === "fit" ? "active" : ""}`}
+                className={`tab-btn seeker-tab ${
+                  seekerTab === "fit" ? "active" : ""
+                }`}
                 onClick={() => setSeekerTab("fit")}
               >
                 정착핏 테스트
               </button>
               <button
-                className={`tab-btn seeker-tab ${seekerTab === "explore" ? "active" : ""}`}
+                className={`tab-btn seeker-tab ${
+                  seekerTab === "explore" ? "active" : ""
+                }`}
                 onClick={() => setSeekerTab("explore")}
               >
                 공고 탐색
               </button>
               <button
-                className={`tab-btn seeker-tab ${seekerTab === "profile" ? "active" : ""}`}
+                className={`tab-btn seeker-tab ${
+                  seekerTab === "profile" ? "active" : ""
+                }`}
                 onClick={() => setSeekerTab("profile")}
               >
                 프로필 업로드
@@ -1192,7 +1348,9 @@ function deleteCandidate(candidateId) {
                       이름
                       <input
                         value={fitForm.name}
-                        onChange={(e) => setFitForm({ ...fitForm, name: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({ ...fitForm, name: e.target.value })
+                        }
                       />
                     </label>
 
@@ -1200,7 +1358,12 @@ function deleteCandidate(candidateId) {
                       희망 직무
                       <input
                         value={fitForm.targetRole}
-                        onChange={(e) => setFitForm({ ...fitForm, targetRole: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({
+                            ...fitForm,
+                            targetRole: e.target.value
+                          })
+                        }
                       />
                     </label>
 
@@ -1208,7 +1371,9 @@ function deleteCandidate(candidateId) {
                       핵심 역량 키워드
                       <input
                         value={fitForm.skills}
-                        onChange={(e) => setFitForm({ ...fitForm, skills: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({ ...fitForm, skills: e.target.value })
+                        }
                       />
                     </label>
 
@@ -1216,7 +1381,12 @@ function deleteCandidate(candidateId) {
                       선호 생활권
                       <select
                         value={fitForm.urbanPreference}
-                        onChange={(e) => setFitForm({ ...fitForm, urbanPreference: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({
+                            ...fitForm,
+                            urbanPreference: e.target.value
+                          })
+                        }
                       >
                         <option value="city">대도시형</option>
                         <option value="suburb">교외 안정형</option>
@@ -1228,7 +1398,9 @@ function deleteCandidate(candidateId) {
                       자녀 동반 여부
                       <select
                         value={fitForm.hasChild}
-                        onChange={(e) => setFitForm({ ...fitForm, hasChild: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({ ...fitForm, hasChild: e.target.value })
+                        }
                       >
                         <option value="true">자녀 있음</option>
                         <option value="false">자녀 없음</option>
@@ -1242,7 +1414,12 @@ function deleteCandidate(candidateId) {
                         min="1"
                         max="7"
                         value={fitForm.educationImportance}
-                        onChange={(e) => setFitForm({ ...fitForm, educationImportance: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({
+                            ...fitForm,
+                            educationImportance: e.target.value
+                          })
+                        }
                       />
                       <span>{fitForm.educationImportance}/7</span>
                     </label>
@@ -1251,7 +1428,12 @@ function deleteCandidate(candidateId) {
                       안전도 민감도
                       <select
                         value={fitForm.safetyTolerance}
-                        onChange={(e) => setFitForm({ ...fitForm, safetyTolerance: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({
+                            ...fitForm,
+                            safetyTolerance: e.target.value
+                          })
+                        }
                       >
                         <option value="very_safe">매우 안전한 지역 선호</option>
                         <option value="safe">안전한 지역 선호</option>
@@ -1264,12 +1446,23 @@ function deleteCandidate(candidateId) {
                       주거비 선호
                       <select
                         value={fitForm.housingCost}
-                        onChange={(e) => setFitForm({ ...fitForm, housingCost: e.target.value })}
+                        onChange={(e) =>
+                          setFitForm({
+                            ...fitForm,
+                            housingCost: e.target.value
+                          })
+                        }
                       >
-                        <option value="avg_minus_30">평균보다 30% 낮은 곳 선호</option>
-                        <option value="avg_minus_15">평균보다 15% 낮은 곳 선호</option>
+                        <option value="avg_minus_30">
+                          평균보다 30% 낮은 곳 선호
+                        </option>
+                        <option value="avg_minus_15">
+                          평균보다 15% 낮은 곳 선호
+                        </option>
                         <option value="average">평균 수준 가능</option>
-                        <option value="avg_plus_15">평균보다 15% 높아도 가능</option>
+                        <option value="avg_plus_15">
+                          평균보다 15% 높아도 가능
+                        </option>
                       </select>
                     </label>
 
@@ -1283,7 +1476,8 @@ function deleteCandidate(candidateId) {
                       <div className="empty-result">
                         <h3>결과 미리보기</h3>
                         <p>
-                          응답을 입력하면 정착 유형, 추천 공고, 정착 리스크가 자동으로 생성됩니다.
+                          응답을 입력하면 정착 유형, 추천 공고, 정착 리스크가
+                          자동으로 생성됩니다.
                         </p>
                       </div>
                     ) : (
@@ -1292,7 +1486,8 @@ function deleteCandidate(candidateId) {
                           <div className="fit-label">정착 유형</div>
                           <h3>{fitResult.fitType}</h3>
                           <p>
-                            입력한 생활환경 선호와 가족 조건을 기준으로 산출한 예비 정착 성향입니다.
+                            입력한 생활환경 선호와 가족 조건을 기준으로 산출한
+                            예비 정착 성향입니다.
                           </p>
                         </div>
 
@@ -1303,14 +1498,22 @@ function deleteCandidate(candidateId) {
                               <div className="mini-rank">{index + 1}</div>
                               <div>
                                 <strong>{job.title}</strong>
-                                <p>{job.company} · {job.location}</p>
-                                <span>종합 {match.total}% · 정착 {match.settlementScore}%</span>
+                                <p>
+                                  {job.company} · {job.location}
+                                </p>
+                                <span>
+                                  종합 {match.total}% · 정착{" "}
+                                  {match.settlementScore}%
+                                </span>
                               </div>
                             </div>
                           ))}
                         </div>
 
-                        <button className="secondary-btn wide" onClick={saveFitCandidate}>
+                        <button
+                          className="secondary-btn wide"
+                          onClick={saveFitCandidate}
+                        >
                           인재 DB에 임시 저장
                         </button>
                         {fitResult.saved && (
@@ -1328,7 +1531,10 @@ function deleteCandidate(candidateId) {
                 <div className="seeker-page-title">
                   <div>
                     <h2>공고 탐색</h2>
-                    <p>관심 키워드와 지역을 기준으로 미국 진출 한국기업 공고를 찾아보세요.</p>
+                    <p>
+                      관심 키워드와 지역을 기준으로 미국 진출 한국기업 공고를
+                      찾아보세요.
+                    </p>
                   </div>
                   <span className="seeker-badge">공개 공고 샘플</span>
                 </div>
@@ -1371,10 +1577,16 @@ function deleteCandidate(candidateId) {
                         ))}
                       </div>
                       <div className="card-actions">
-                        <button className="cta-btn small" onClick={() => setSeekerTab("fit")}>
+                        <button
+                          className="cta-btn small"
+                          onClick={() => setSeekerTab("fit")}
+                        >
                           정착핏 확인
                         </button>
-                        <button className="outline-btn small" onClick={() => setSeekerTab("profile")}>
+                        <button
+                          className="outline-btn small"
+                          onClick={() => setSeekerTab("profile")}
+                        >
                           프로필로 매칭
                         </button>
                       </div>
@@ -1401,7 +1613,10 @@ function deleteCandidate(candidateId) {
                       <input
                         value={profileForm.name}
                         onChange={(e) =>
-                          setProfileForm({ ...profileForm, name: e.target.value })
+                          setProfileForm({
+                            ...profileForm,
+                            name: e.target.value
+                          })
                         }
                         placeholder="예: 홍길동"
                       />
@@ -1427,7 +1642,10 @@ function deleteCandidate(candidateId) {
                         type="number"
                         value={profileForm.years}
                         onChange={(e) =>
-                          setProfileForm({ ...profileForm, years: e.target.value })
+                          setProfileForm({
+                            ...profileForm,
+                            years: e.target.value
+                          })
                         }
                       />
                     </label>
@@ -1437,7 +1655,10 @@ function deleteCandidate(candidateId) {
                       <input
                         value={profileForm.skills}
                         onChange={(e) =>
-                          setProfileForm({ ...profileForm, skills: e.target.value })
+                          setProfileForm({
+                            ...profileForm,
+                            skills: e.target.value
+                          })
                         }
                         placeholder="예: battery, manufacturing, korean"
                       />
@@ -1466,7 +1687,8 @@ function deleteCandidate(candidateId) {
                       <div className="empty-result">
                         <h3>프로필 분석 결과</h3>
                         <p>
-                          업로드된 이력서와 입력 정보를 기반으로 후보자 프로필을 생성하고 맞춤 공고를 추천합니다.
+                          업로드된 이력서와 입력 정보를 기반으로 후보자 프로필을
+                          생성하고 맞춤 공고를 추천합니다.
                         </p>
                       </div>
                     ) : (
@@ -1488,14 +1710,20 @@ function deleteCandidate(candidateId) {
                               <div className="mini-rank">{index + 1}</div>
                               <div>
                                 <strong>{job.title}</strong>
-                                <p>{job.company} · {job.location}</p>
-                                <span>종합 {match.total}% · 직무 {match.skillScore}%</span>
+                                <p>
+                                  {job.company} · {job.location}
+                                </p>
+                                <span>
+                                  종합 {match.total}% · 직무 {match.skillScore}%
+                                </span>
                               </div>
                             </div>
                           ))}
                         </div>
 
-                        <p className="save-message">인재 DB에 임시 등록되었습니다.</p>
+                        <p className="save-message">
+                          인재 DB에 임시 등록되었습니다.
+                        </p>
                       </div>
                     )}
                   </div>
@@ -1506,8 +1734,9 @@ function deleteCandidate(candidateId) {
         )}
 
         <footer className="footer-note">
-          본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 공식 채용 데이터,
-          기업 입력 데이터, 이력서 파싱 데이터, 지역 생활환경 데이터를 연동해 고도화할 수 있습니다.
+          본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 공식 채용
+          데이터, 기업 입력 데이터, 이력서 파싱 데이터, 지역 생활환경 데이터를
+          연동해 고도화할 수 있습니다.
         </footer>
       </div>
     </div>
