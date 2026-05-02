@@ -716,7 +716,7 @@ button {
 }
 
 .seeker-badge {
-  background: var(--seeker-pastel);
+  background: #cedef2;
   color: var(--seeker-navy);
   border: 1px solid var(--seeker-line);
   border-radius: 999px;
@@ -953,7 +953,7 @@ button {
 }
 
 .seeker-welcome-box {
-  background: var(--seeker-pastel);
+  background: #cedef2;
   border: 1px solid var(--seeker-line);
   border-radius: 18px;
   padding: 22px 24px;
