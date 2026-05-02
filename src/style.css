@@ -9,7 +9,7 @@
   --accent: #2f5d86;
 
   --seeker-red: #d20800;
-  --seeker-blue: #0226a8;
+  --seeker-blue: #1f6f8b;
   --seeker-navy: #022773;
   --seeker-line: #dce4ef;
   --seeker-gray: #f8f9fa;
@@ -771,7 +771,7 @@ button {
 }
 
 .cta-btn:hover {
-  background: var(--seeker-navy);
+  background: #185a70;
 }
 
 .cta-btn.small,
