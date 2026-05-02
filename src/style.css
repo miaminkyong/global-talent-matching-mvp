@@ -981,7 +981,7 @@ button {
 .welcome-closing {
   margin-top: 14px !important;
   font-weight: 900;
-  color: var(--seeker-red);
+  color: var(--seeker-blue);
 }
 @media (max-width: 900px) {
   .app-shell {
