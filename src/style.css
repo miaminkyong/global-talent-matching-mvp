@@ -1220,3 +1220,49 @@ button {
   color: var(--seeker-navy);
   transform: translateY(-1px);
 }
+.job-inline-actions {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: var(--seeker-navy);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.inline-arrow {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--seeker-pastel);
+  color: var(--seeker-navy);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  flex: 0 0 auto;
+}
+
+.inline-fit-button {
+  background: #ffffff;
+  color: var(--seeker-navy);
+  border: 1px solid var(--seeker-line);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(2, 39, 115, 0.05);
+  transition: all 0.2s ease;
+}
+
+.inline-fit-button:hover {
+  background: var(--seeker-yellow);
+  border-color: #f0d87b;
+  transform: translateY(-1px);
+}
+
+.inline-action-text {
+  color: var(--seeker-text);
+  font-weight: 800;
+}
