@@ -1266,3 +1266,28 @@ button {
   color: var(--seeker-text);
   font-weight: 800;
 }
+.inline-arrow {
+  position: relative !important;
+  display: inline-block !important;
+  width: 36px !important;
+  height: 16px !important;
+  margin-right: 6px !important;
+  background: #f6e7a1 !important;
+  border-radius: 3px !important;
+  flex: 0 0 auto !important;
+  color: transparent !important;
+  font-size: 0 !important;
+}
+
+.inline-arrow::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 50% !important;
+  right: -13px !important;
+  transform: translateY(-50%) !important;
+  width: 0 !important;
+  height: 0 !important;
+  border-top: 12px solid transparent !important;
+  border-bottom: 12px solid transparent !important;
+  border-left: 13px solid #f6e7a1 !important;
+}
