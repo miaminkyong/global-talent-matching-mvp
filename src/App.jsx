@@ -1464,6 +1464,17 @@ function goToSeekerTab(tabName) {
                     )}
                   </div>
                 </div>
+                <div className="profile-prompt-box">
+  <span>
+    더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.
+  </span>
+  <button
+    className="profile-prompt-link"
+    onClick={() => goToSeekerTab("profile")}
+  >
+    프로필 업로드
+  </button>
+</div>
               </section>
             )}
 
@@ -1526,6 +1537,17 @@ function goToSeekerTab(tabName) {
                     </div>
                   ))}
                 </div>
+                <div className="profile-prompt-box">
+  <span>
+    더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.
+  </span>
+  <button
+    className="profile-prompt-link"
+    onClick={() => goToSeekerTab("profile")}
+  >
+    프로필 업로드
+  </button>
+</div>
               </section>
             )}
 
