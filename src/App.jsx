@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 
 const initialJobs = [
   {
@@ -708,7 +708,18 @@ export default function App() {
   });
 
   const [profileResult, setProfileResult] = useState(null);
+const seekerContentRef = useRef(null);
 
+function goToSeekerTab(tabName) {
+  setSeekerTab(tabName);
+
+  setTimeout(() => {
+    seekerContentRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 80);
+}
   const selectedJob = jobs.find((job) => job.id === selectedJobId) || jobs[0];
 
   function upsertCandidate(nextCandidate) {
@@ -1011,41 +1022,41 @@ export default function App() {
                   </span>
                 </div>
                 <div className="fit-hero-action">
-                  <button className="cta-btn fit-main-btn" onClick={() => setSeekerTab("fit")}>
-                    정착Fit 테스트 시작하기
-                  </button>
+                  <button className="cta-btn fit-main-btn" onClick={() => goToSeekerTab("fit")}>
+  정착Fit 테스트 시작하기
+</button>
                 </div>
               </div>
 
               <div className="seeker-info-grid">
                 <div className="job-shortcut-card">
                   <h3>미국 진출 한국기업 공고</h3>
-                  <button className="outline-btn job-view-btn" onClick={() => setSeekerTab("explore")}>
-                    공고 보기
-                  </button>
+                 <button className="outline-btn job-view-btn" onClick={() => goToSeekerTab("explore")}>
+  공고 보기
+</button>
                 </div>
 
                 <div className="seeker-welcome-box">
                   <p className="welcome-greeting">안녕하세요. 헤드헌터 성민경입니다.</p>
                   <p>
                     나에게 맞는 미국 근무지와 생활환경을 찾으려면{" "}
-                    <button className="inline-link-pill" onClick={() => setSeekerTab("fit")}>
-                      정착Fit 테스트
-                    </button>
+                   <button className="inline-link-pill" onClick={() => goToSeekerTab("fit")}>
+  정착Fit 테스트
+</button>
                     를,
                   </p>
                   <p>
                     관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면{" "}
-                    <button className="inline-link-pill" onClick={() => setSeekerTab("explore")}>
-                      공고 탐색
-                    </button>
+                   <button className="inline-link-pill" onClick={() => goToSeekerTab("explore")}>
+  공고 탐색
+</button>
                     을,
                   </p>
                   <p>
                     보유한 이력서를 기반으로 맞춤 공고를 추천 받고 싶으면{" "}
-                    <button className="inline-link-pill" onClick={() => setSeekerTab("profile")}>
-                      프로필 업로드
-                    </button>
+                    <button className="inline-link-pill" onClick={() => goToSeekerTab("profile")}>
+  프로필 업로드
+</button>
                     를 눌러보세요.
                   </p>
                   <p className="welcome-closing">안정적인 미국 정착과 성공적인 구직을 응원합니다!</p>
@@ -1344,24 +1355,14 @@ export default function App() {
           </>
         ) : (
           <>
-            <nav className="tab-nav seeker-tabs">
-              <button className={`tab-btn seeker-tab ${seekerTab === "fit" ? "active" : ""}`} onClick={() => setSeekerTab("fit")}>
-                정착Fit 테스트
-              </button>
-              <button className={`tab-btn seeker-tab ${seekerTab === "explore" ? "active" : ""}`} onClick={() => setSeekerTab("explore")}>
-                공고 탐색
-              </button>
-              <button className={`tab-btn seeker-tab ${seekerTab === "profile" ? "active" : ""}`} onClick={() => setSeekerTab("profile")}>
-                프로필 업로드
-              </button>
-            </nav>
+           <div ref={seekerContentRef} className="seeker-content-anchor" />
 
             {seekerTab === "fit" && (
               <section className="section-card seeker-card">
                 <div className="seeker-page-title">
                   <div>
                     <h2>정착Fit 테스트</h2>
-                    <p>나에게 맞는 미국 근무지와 생활환경 찾기</p>
+                    <p>나에게 맞는 미국 근무지와 생활환경 찾아보세요.</p>
                   </div>
                   <span className="seeker-badge">지역 선호도 기반</span>
                 </div>
@@ -1471,7 +1472,7 @@ export default function App() {
                 <div className="seeker-page-title">
                   <div>
                     <h2>공고 탐색</h2>
-                    <p>관심 키워드, 지역, 직무, 영주권 지원 여부를 기준으로 공고를 찾아보세요.</p>
+                    <p>관심 키워드, 지역, 직무, 영주권 지원 여부를 기준으로 미국진출 한국기업의 공고를 찾아보세요.</p>
                   </div>
                   <span className="seeker-badge">미국 진출 한국기업 공고</span>
                 </div>
