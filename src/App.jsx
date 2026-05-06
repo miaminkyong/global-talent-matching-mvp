@@ -1526,14 +1526,22 @@ function goToSeekerTab(tabName) {
                           <Tag key={keyword}>{keyword}</Tag>
                         ))}
                       </div>
-                      <div className="card-actions">
-                        <button className="yellow-action-btn small" onClick={() => setSeekerTab("fit")}>
-                          정착Fit 확인
-                        </button>
-                        <button className="outline-btn small" onClick={() => setSeekerTab("profile")}>
-                          프로필Fit 확인
-                        </button>
-                      </div>
+                     <div className="card-actions job-inline-actions">
+  <span className="inline-arrow">→</span>
+  <button
+    className="inline-fit-button"
+    onClick={() => goToSeekerTab("fit")}
+  >
+    정착Fit
+  </button>
+  <button
+    className="inline-fit-button"
+    onClick={() => goToSeekerTab("profile")}
+  >
+    프로필Fit
+  </button>
+  <span className="inline-action-text">확인</span>
+</div>
                     </div>
                   ))}
                 </div>
