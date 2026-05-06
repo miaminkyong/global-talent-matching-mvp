@@ -456,7 +456,8 @@ function scoreMatch(candidate, job) {
       .some(
         (w) =>
           w.length > 2 &&
-          (job.title.toLowerCase().includes(w) || job.category.toLowerCase().includes(w))
+          (job.title.toLowerCase().includes(w) ||
+            job.category.toLowerCase().includes(w))
       )
       ? 90
       : 55;
@@ -480,7 +481,10 @@ function scoreMatch(candidate, job) {
   const settlementScore = clamp(fit.reduce((a, b) => a + b, 0) / fit.length);
   const koreanBonus = job.koreanRequired && cSkills.includes("korean") ? 8 : 0;
   const greenCardBonus =
-    job.greenCardSupport === "영주권 지원 가능" && candidate.residence === "대한민국" ? 6 : 0;
+    job.greenCardSupport === "영주권 지원 가능" &&
+    candidate.residence === "대한민국"
+      ? 6
+      : 0;
 
   const total = clamp(
     skillScore * 0.36 +
@@ -492,10 +496,19 @@ function scoreMatch(candidate, job) {
 
   const risks = [];
   if (candidate.hasChild && r.school < 4) risks.push("자녀 교육환경 확인 필요");
-  if ((prefMap[candidate.housingCost] || 3) > r.cost + 1) risks.push("생활비 기대치 대비 부담 가능성");
-  if (candidate.koreaVisit.includes("direct") && r.directFlight < 4) risks.push("한국 방문 접근성 점검 필요");
-  if (candidate.spouseESL && r.koreanCommunity < 3) risks.push("배우자 지원 인프라 확인 필요");
-  if (job.greenCardSupport === "지원 여부 미확인" && candidate.residence === "대한민국") {
+  if ((prefMap[candidate.housingCost] || 3) > r.cost + 1) {
+    risks.push("생활비 기대치 대비 부담 가능성");
+  }
+  if (candidate.koreaVisit.includes("direct") && r.directFlight < 4) {
+    risks.push("한국 방문 접근성 점검 필요");
+  }
+  if (candidate.spouseESL && r.koreanCommunity < 3) {
+    risks.push("배우자 지원 인프라 확인 필요");
+  }
+  if (
+    job.greenCardSupport === "지원 여부 미확인" &&
+    candidate.residence === "대한민국"
+  ) {
     risks.push("영주권/비자 지원 여부 확인 필요");
   }
   if (risks.length === 0) risks.push("주요 정착 리스크 낮음");
@@ -521,7 +534,11 @@ function getMatchReason(candidate, job, match) {
   );
 
   if (skillOverlap.length > 0) {
-    reasons.push(`직무 키워드(${skillOverlap.slice(0, 3).join(", ")})가 공고 요구사항과 일치합니다.`);
+    reasons.push(
+      `직무 키워드(${skillOverlap
+        .slice(0, 3)
+        .join(", ")})가 공고 요구사항과 일치합니다.`
+    );
   }
 
   if (match.settlementScore >= 80) {
@@ -582,19 +599,34 @@ function extractKeywords(text, fallback = []) {
   ];
 
   const lowered = text.toLowerCase();
-  const found = dictionary.filter((keyword) => lowered.includes(keyword.toLowerCase()));
+  const found = dictionary.filter((keyword) =>
+    lowered.includes(keyword.toLowerCase())
+  );
+
   return [...new Set([...found, ...fallback])].slice(0, 8);
 }
 
 function inferRoleFromKeywords(keywords) {
   const k = keywords.join(" ").toLowerCase();
-  if (k.includes("finance") || k.includes("accounting") || k.includes("controller")) return "Financial Controller";
-  if (k.includes("marketing") || k.includes("operations")) return "Marketing / Operations Specialist";
-  if (k.includes("field service") || k.includes("maintenance")) return "Field Service Engineer";
-  if (k.includes("automation") || k.includes("smart factory") || k.includes("plc")) return "Smart Factory Engineer";
-  if (k.includes("logistics") || k.includes("supply chain")) return "Supply Chain / Logistics Specialist";
+  if (k.includes("finance") || k.includes("accounting") || k.includes("controller")) {
+    return "Financial Controller";
+  }
+  if (k.includes("marketing") || k.includes("operations")) {
+    return "Marketing / Operations Specialist";
+  }
+  if (k.includes("field service") || k.includes("maintenance")) {
+    return "Field Service Engineer";
+  }
+  if (k.includes("automation") || k.includes("smart factory") || k.includes("plc")) {
+    return "Smart Factory Engineer";
+  }
+  if (k.includes("logistics") || k.includes("supply chain")) {
+    return "Supply Chain / Logistics Specialist";
+  }
   if (k.includes("quality")) return "Quality Engineer";
-  if (k.includes("battery") || k.includes("manufacturing")) return "Manufacturing Engineer";
+  if (k.includes("battery") || k.includes("manufacturing")) {
+    return "Manufacturing Engineer";
+  }
   return "Open Position";
 }
 
@@ -605,6 +637,7 @@ function makeResumeSummary(name, role, keywords) {
 
 function downloadCSV(filename, rows) {
   if (!rows.length) return;
+
   const headers = Object.keys(rows[0]);
   const csv = [
     headers.join(","),
@@ -628,7 +661,11 @@ function downloadCSV(filename, rows) {
 }
 
 function Tag({ children, tone = "default" }) {
-  return <span className={`tag ${tone === "visa" ? "visa-tag" : ""}`}>{children}</span>;
+  return (
+    <span className={`tag ${tone === "visa" ? "visa-tag" : ""}`}>
+      {children}
+    </span>
+  );
 }
 
 function ScorePill({ label, value }) {
@@ -708,19 +745,19 @@ export default function App() {
   });
 
   const [profileResult, setProfileResult] = useState(null);
-const seekerContentRef = useRef(null);
+  const seekerContentRef = useRef(null);
 
-function goToSeekerTab(tabName) {
-  setSeekerTab(tabName);
-
-  setTimeout(() => {
-    seekerContentRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }, 80);
-}
   const selectedJob = jobs.find((job) => job.id === selectedJobId) || jobs[0];
+
+  function goToSeekerTab(tabName) {
+    setSeekerTab(tabName);
+    setTimeout(() => {
+      seekerContentRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }, 80);
+  }
 
   function upsertCandidate(nextCandidate) {
     setCandidates((prev) => {
@@ -732,11 +769,14 @@ function goToSeekerTab(tabName) {
       if (existingIndex >= 0) {
         return prev.map((candidate, index) => {
           if (index !== existingIndex) return candidate;
+
           return {
             ...candidate,
             ...nextCandidate,
             id: candidate.id,
-            candidateType: [...new Set([candidate.candidateType, nextCandidate.candidateType].filter(Boolean))].join(" + "),
+            candidateType: [
+              ...new Set([candidate.candidateType, nextCandidate.candidateType].filter(Boolean))
+            ].join(" + "),
             skills: [...new Set([...(candidate.skills || []), ...(nextCandidate.skills || [])])],
             notes: nextCandidate.notes || candidate.notes,
             resumeSummary: nextCandidate.resumeSummary || candidate.resumeSummary,
@@ -768,14 +808,22 @@ function goToSeekerTab(tabName) {
   const filteredJobs = useMemo(() => {
     return jobs.filter((job) => {
       const q = jobQuery.trim().toLowerCase();
-      const target = [job.company, job.title, job.location, job.category, job.summary, ...job.keywords]
+      const target = [
+        job.company,
+        job.title,
+        job.location,
+        job.category,
+        job.summary,
+        ...job.keywords
+      ]
         .join(" ")
         .toLowerCase();
 
       const queryOk = q === "" || target.includes(q);
       const stateOk = stateFilter === "ALL" || job.state === stateFilter;
       const roleOk = roleFilter === "ALL" || job.category === roleFilter;
-      const greenCardOk = greenCardFilter === "ALL" || job.greenCardSupport === greenCardFilter;
+      const greenCardOk =
+        greenCardFilter === "ALL" || job.greenCardSupport === greenCardFilter;
 
       return queryOk && stateOk && roleOk && greenCardOk;
     });
@@ -818,7 +866,12 @@ function goToSeekerTab(tabName) {
       .sort((a, b) => b.match.total - a.match.total)
       .slice(0, 3);
 
-    setFitResult({ candidate, fitType: getFitType(candidate), rankedJobs, saved: false });
+    setFitResult({
+      candidate,
+      fitType: getFitType(candidate),
+      rankedJobs,
+      saved: false
+    });
   }
 
   function saveFitCandidate() {
@@ -866,7 +919,10 @@ function goToSeekerTab(tabName) {
 
   function refreshJobs() {
     const now = new Date();
-    const label = `오늘 ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
+    const label = `오늘 ${String(now.getHours()).padStart(2, "0")}:${String(
+      now.getMinutes()
+    ).padStart(2, "0")}`;
+
     setLastRefresh(label);
     setJobs((prev) => prev.map((job) => ({ ...job, updatedAt: label })));
   }
@@ -968,9 +1024,14 @@ function goToSeekerTab(tabName) {
   function deleteCandidate(candidateId) {
     const target = candidates.find((candidate) => candidate.id === candidateId);
     const ok = window.confirm(`${target?.name || "선택한 후보자"} 데이터를 삭제할까요?`);
+
     if (!ok) return;
+
     setCandidates((prev) => prev.filter((candidate) => candidate.id !== candidateId));
-    if (editingCandidateId === candidateId) cancelEditCandidate();
+
+    if (editingCandidateId === candidateId) {
+      cancelEditCandidate();
+    }
   }
 
   return (
@@ -978,10 +1039,16 @@ function goToSeekerTab(tabName) {
       <div className="top-bar">
         <div className="top-bar-left">Global Talent Landing Platform</div>
         <div className="top-bar-actions">
-          <button className={`top-mode-btn ${mode === "admin" ? "active" : ""}`} onClick={() => setMode("admin")}>
+          <button
+            className={`top-mode-btn ${mode === "admin" ? "active" : ""}`}
+            onClick={() => setMode("admin")}
+          >
             관리자용
           </button>
-          <button className={`top-mode-btn ${mode === "seeker" ? "active seeker" : ""}`} onClick={() => setMode("seeker")}>
+          <button
+            className={`top-mode-btn ${mode === "seeker" ? "active seeker" : ""}`}
+            onClick={() => setMode("seeker")}
+          >
             구직자용
           </button>
           <button className="login-btn">Google 로그인</button>
@@ -1016,47 +1083,47 @@ function goToSeekerTab(tabName) {
               <div className="fit-hero-card">
                 <div className="fit-hero-content">
                   <h2>정착Fit 테스트</h2>
-                  <p>나에게 맞는 미국 근무지와 생활환경 찾기</p>
+                  <p>나에게 맞는 미국 근무지와 생활환경을 찾아보세요.</p>
                   <span>
                     미국은 지역마다 생활비, 학군, 안전도, 커뮤니티가 다릅니다. 간단한 테스트로 내게 맞는 근무지/생활환경을 확인해보세요.
                   </span>
                 </div>
                 <div className="fit-hero-action">
                   <button className="cta-btn fit-main-btn" onClick={() => goToSeekerTab("fit")}>
-  정착Fit 테스트 시작하기
-</button>
+                    정착Fit 테스트 시작하기
+                  </button>
                 </div>
               </div>
 
               <div className="seeker-info-grid">
                 <div className="job-shortcut-card">
                   <h3>미국 진출 한국기업 공고</h3>
-                 <button className="outline-btn job-view-btn" onClick={() => goToSeekerTab("explore")}>
-  공고 보기
-</button>
+                  <button className="outline-btn job-view-btn" onClick={() => goToSeekerTab("explore")}>
+                    공고 보기
+                  </button>
                 </div>
 
                 <div className="seeker-welcome-box">
                   <p className="welcome-greeting">안녕하세요. 헤드헌터 성민경입니다.</p>
                   <p>
                     나에게 맞는 미국 근무지와 생활환경을 찾으려면{" "}
-                   <button className="inline-link-pill" onClick={() => goToSeekerTab("fit")}>
-  정착Fit 테스트
-</button>
+                    <button className="inline-link-pill" onClick={() => goToSeekerTab("fit")}>
+                      정착Fit 테스트
+                    </button>
                     를,
                   </p>
                   <p>
                     관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면{" "}
-                   <button className="inline-link-pill" onClick={() => goToSeekerTab("explore")}>
-  공고 탐색
-</button>
+                    <button className="inline-link-pill" onClick={() => goToSeekerTab("explore")}>
+                      공고 탐색
+                    </button>
                     을,
                   </p>
                   <p>
                     보유한 이력서를 기반으로 맞춤 공고를 추천 받고 싶으면{" "}
                     <button className="inline-link-pill" onClick={() => goToSeekerTab("profile")}>
-  프로필 업로드
-</button>
+                      프로필 업로드
+                    </button>
                     를 눌러보세요.
                   </p>
                   <p className="welcome-closing">안정적인 미국 정착과 성공적인 구직을 응원합니다!</p>
@@ -1069,13 +1136,22 @@ function goToSeekerTab(tabName) {
         {mode === "admin" ? (
           <>
             <nav className="tab-nav">
-              <button className={`tab-btn ${adminTab === "matching" ? "active" : ""}`} onClick={() => setAdminTab("matching")}>
+              <button
+                className={`tab-btn ${adminTab === "matching" ? "active" : ""}`}
+                onClick={() => setAdminTab("matching")}
+              >
                 매칭 대시보드
               </button>
-              <button className={`tab-btn ${adminTab === "talent" ? "active" : ""}`} onClick={() => setAdminTab("talent")}>
+              <button
+                className={`tab-btn ${adminTab === "talent" ? "active" : ""}`}
+                onClick={() => setAdminTab("talent")}
+              >
                 인재 DB
               </button>
-              <button className={`tab-btn ${adminTab === "jobs" ? "active" : ""}`} onClick={() => setAdminTab("jobs")}>
+              <button
+                className={`tab-btn ${adminTab === "jobs" ? "active" : ""}`}
+                onClick={() => setAdminTab("jobs")}
+              >
                 공고 관리
               </button>
             </nav>
@@ -1127,13 +1203,22 @@ function goToSeekerTab(tabName) {
                     <p>종합, 직무, 정착 기준으로 정렬해 후보자를 검토할 수 있습니다.</p>
                   </div>
                   <div className="sort-control">
-                    <button className={`sort-btn ${sortMode === "total" ? "active" : ""}`} onClick={() => setSortMode("total")}>
+                    <button
+                      className={`sort-btn ${sortMode === "total" ? "active" : ""}`}
+                      onClick={() => setSortMode("total")}
+                    >
                       종합 적합도순
                     </button>
-                    <button className={`sort-btn ${sortMode === "skill" ? "active" : ""}`} onClick={() => setSortMode("skill")}>
+                    <button
+                      className={`sort-btn ${sortMode === "skill" ? "active" : ""}`}
+                      onClick={() => setSortMode("skill")}
+                    >
                       직무 적합도순
                     </button>
-                    <button className={`sort-btn ${sortMode === "settlement" ? "active" : ""}`} onClick={() => setSortMode("settlement")}>
+                    <button
+                      className={`sort-btn ${sortMode === "settlement" ? "active" : ""}`}
+                      onClick={() => setSortMode("settlement")}
+                    >
                       정착 적합도순
                     </button>
                   </div>
@@ -1151,18 +1236,23 @@ function goToSeekerTab(tabName) {
                         {candidate.targetRole} · 경력 {candidate.experienceYears}년
                       </div>
                       <div className="card-meta">{candidate.email}</div>
+
                       <MatchBar score={match.total} />
+
                       <div className="score-row">
                         <ScorePill label="직무" value={match.skillScore} />
                         <ScorePill label="역할" value={match.roleScore} />
                         <ScorePill label="정착" value={match.settlementScore} />
                       </div>
+
                       <div className="tag-row">
                         {candidate.skills.slice(0, 5).map((skill) => (
                           <Tag key={skill}>{skill}</Tag>
                         ))}
                       </div>
+
                       <p className="card-summary">{candidate.resumeSummary || candidate.notes}</p>
+
                       <div className="reason-box">
                         <div className="reason-title">추천 사유</div>
                         <ul>
@@ -1171,6 +1261,7 @@ function goToSeekerTab(tabName) {
                           ))}
                         </ul>
                       </div>
+
                       <div className="risk-box">
                         <div className="risk-title">정착 리스크</div>
                         <ul>
@@ -1215,6 +1306,7 @@ function goToSeekerTab(tabName) {
                               {candidate.targetRole} · 경력 {candidate.experienceYears}년
                             </div>
                             <div className="card-meta">{candidate.email}</div>
+
                             <div className="info-grid">
                               <div className="info-item">
                                 <div className="info-label">정착 유형</div>
@@ -1233,12 +1325,15 @@ function goToSeekerTab(tabName) {
                                 <div className="info-value">{candidate.koreaVisit}</div>
                               </div>
                             </div>
+
                             <div className="tag-row">
                               {candidate.skills.map((skill) => (
                                 <Tag key={skill}>{skill}</Tag>
                               ))}
                             </div>
+
                             <p className="card-summary">{candidate.resumeSummary || candidate.notes}</p>
+
                             <div className="db-action-row">
                               <button className="db-edit-btn" onClick={() => startEditCandidate(candidate)}>
                                 수정
@@ -1355,16 +1450,15 @@ function goToSeekerTab(tabName) {
           </>
         ) : (
           <>
-           <div ref={seekerContentRef} className="seeker-content-anchor" />
+            <div ref={seekerContentRef} className="seeker-content-anchor" />
 
             {seekerTab === "fit" && (
               <section className="section-card seeker-card">
                 <div className="seeker-page-title">
                   <div>
                     <h2>정착Fit 테스트</h2>
-                    <p>나에게 맞는 미국 근무지와 생활환경 찾아보세요.</p>
+                    <p>나에게 맞는 미국 근무지와 생활환경을 찾아보세요.</p>
                   </div>
-                  <span className="seeker-badge">지역 선호도 기반</span>
                 </div>
 
                 <div className="two-column-layout">
@@ -1464,17 +1558,8 @@ function goToSeekerTab(tabName) {
                     )}
                   </div>
                 </div>
-                <div className="profile-prompt-box">
-  <span>
-    더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.
-  </span>
-  <button
-    className="profile-prompt-link"
-    onClick={() => goToSeekerTab("profile")}
-  >
-    프로필 업로드
-  </button>
-</div>
+
+                <ProfilePrompt goToSeekerTab={goToSeekerTab} />
               </section>
             )}
 
@@ -1483,13 +1568,17 @@ function goToSeekerTab(tabName) {
                 <div className="seeker-page-title">
                   <div>
                     <h2>공고 탐색</h2>
-                    <p>관심 키워드, 지역, 직무, 영주권 지원 여부를 기준으로 미국진출 한국기업의 공고를 찾아보세요.</p>
+                    <p>관심 키워드, 지역, 직무, 영주권 지원 여부를 기준으로 미국 진출 한국기업의 공고를 찾아보세요.</p>
                   </div>
-                  <span className="seeker-badge">미국 진출 한국기업 공고</span>
                 </div>
 
                 <div className="filter-wrap seeker-filter">
-                  <input className="search-input" placeholder="회사명, 직무명, 키워드 검색" value={jobQuery} onChange={(e) => setJobQuery(e.target.value)} />
+                  <input
+                    className="search-input"
+                    placeholder="회사명, 직무명, 키워드 검색"
+                    value={jobQuery}
+                    onChange={(e) => setJobQuery(e.target.value)}
+                  />
                   <select className="state-select" value={stateFilter} onChange={(e) => setStateFilter(e.target.value)}>
                     <option value="ALL">지역 전체</option>
                     {[...new Set(jobs.map((job) => job.state))].map((state) => (
@@ -1526,35 +1615,22 @@ function goToSeekerTab(tabName) {
                           <Tag key={keyword}>{keyword}</Tag>
                         ))}
                       </div>
-                     <div className="card-actions job-inline-actions">
-  <span className="inline-arrow">➜</span>
-  <button
-    className="inline-fit-button"
-    onClick={() => goToSeekerTab("fit")}
-  >
-    정착Fit
-  </button>
-  <button
-    className="inline-fit-button"
-    onClick={() => goToSeekerTab("profile")}
-  >
-    프로필Fit
-  </button>
-  <span className="inline-action-text">확인</span>
-</div>
+
+                      <div className="job-fit-actions">
+                        <span className="fit-arrow">➜</span>
+                        <button className="fit-pill" onClick={() => goToSeekerTab("fit")}>
+                          정착Fit
+                        </button>
+                        <button className="fit-pill" onClick={() => goToSeekerTab("profile")}>
+                          프로필Fit
+                        </button>
+                        <span className="fit-confirm-text">확인</span>
+                      </div>
+                    </div>
                   ))}
                 </div>
-                <div className="profile-prompt-box">
-  <span>
-    더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.
-  </span>
-  <button
-    className="profile-prompt-link"
-    onClick={() => goToSeekerTab("profile")}
-  >
-    프로필 업로드
-  </button>
-</div>
+
+                <ProfilePrompt goToSeekerTab={goToSeekerTab} />
               </section>
             )}
 
@@ -1565,7 +1641,6 @@ function goToSeekerTab(tabName) {
                     <h2>프로필 업로드</h2>
                     <p>더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.</p>
                   </div>
-                  <span className="seeker-badge">Resume Scan Mock</span>
                 </div>
 
                 <div className="two-column-layout">
@@ -1652,6 +1727,17 @@ function goToSeekerTab(tabName) {
           본 화면은 제안서 제출용 MVP 예시입니다. 실제 서비스에서는 Firebase 기반 파일 저장, Firestore DB, Gemini API 기반 이력서 분석, 공고 자동 수집 기능으로 고도화할 수 있습니다.
         </footer>
       </div>
+    </div>
+  );
+}
+
+function ProfilePrompt({ goToSeekerTab }) {
+  return (
+    <div className="profile-prompt-box">
+      <span>더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.</span>
+      <button className="profile-prompt-link" onClick={() => goToSeekerTab("profile")}>
+        프로필 업로드
+      </button>
     </div>
   );
 }
