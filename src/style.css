@@ -1118,7 +1118,13 @@ button {
     transform: none;
     width: auto;
   }
+.profile-prompt-box {
+  align-items: stretch;
+}
 
+.profile-prompt-link {
+  width: 100%;
+}
   .top-bar-actions {
     width: 100%;
     justify-content: flex-start;
@@ -1166,4 +1172,42 @@ button {
   .fit-main-btn {
     max-width: 100%;
   }
+}
+.profile-prompt-box {
+  margin-top: 24px;
+  background: var(--seeker-ivory);
+  border: 1px solid #eadfc4;
+  border-radius: 18px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  box-shadow: 0 8px 20px rgba(19, 79, 168, 0.07);
+}
+
+.profile-prompt-box span {
+  color: var(--seeker-navy);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.profile-prompt-link {
+  border: 1px solid var(--seeker-line);
+  background: #ffffff;
+  color: var(--seeker-blue);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(2, 39, 115, 0.08);
+  transition: all 0.2s ease;
+}
+
+.profile-prompt-link:hover {
+  background: var(--seeker-yellow);
+  color: var(--seeker-navy);
+  transform: translateY(-1px);
 }
