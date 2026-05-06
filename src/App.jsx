@@ -1527,7 +1527,7 @@ function goToSeekerTab(tabName) {
                         ))}
                       </div>
                      <div className="card-actions job-inline-actions">
-  <span className="inline-arrow">→</span>
+<span className="inline-arrow" />
   <button
     className="inline-fit-button"
     onClick={() => goToSeekerTab("fit")}
