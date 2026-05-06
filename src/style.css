@@ -13,6 +13,8 @@
   --seeker-blue-hover: #0e3f86;
   --seeker-pastel: #cedef2;
   --seeker-pastel-bg: #f4f8ff;
+  --seeker-ivory: #fffaf0;
+  --seeker-beige: #f8f1df;
   --seeker-yellow: #fff1b8;
   --seeker-yellow-strong: #f4c542;
   --seeker-navy: #022773;
@@ -134,18 +136,6 @@ button {
   margin-bottom: 24px;
 }
 
-.hero-topline {
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: 0.02em;
-}
-
-.seeker-mode .hero-topline {
-  color: var(--seeker-red);
-}
-
 .hero-title {
   margin: 0 0 10px;
   font-size: 34px;
@@ -196,24 +186,16 @@ button {
 }
 
 .fit-hero-card {
-  background: linear-gradient(135deg, #ffffff 0%, #edf5ff 55%, var(--seeker-pastel) 100%);
+  background: linear-gradient(135deg, #ffffff 0%, var(--seeker-ivory) 52%, #eef5ff 100%);
   border: 1px solid var(--seeker-line);
   border-radius: 24px;
   padding: 28px;
-  box-shadow: 0 18px 38px rgba(19, 79, 168, 0.16);
+  box-shadow: 0 18px 38px rgba(19, 79, 168, 0.14);
   margin-bottom: 18px;
-}
-
-.fit-hero-label {
-  display: inline-flex;
-  background: var(--seeker-yellow);
-  color: var(--seeker-navy);
-  border: 1px solid #f0d87b;
-  border-radius: 999px;
-  padding: 7px 11px;
-  font-size: 13px;
-  font-weight: 900;
-  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 24px;
+  align-items: center;
 }
 
 .fit-hero-card h2 {
@@ -231,10 +213,13 @@ button {
 
 .fit-hero-card span {
   display: block;
-  max-width: 820px;
   color: var(--seeker-text);
-  line-height: 1.7;
-  margin-bottom: 18px;
+  line-height: 1.65;
+}
+
+.fit-hero-action {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .fit-main-btn {
@@ -278,23 +263,18 @@ button {
 }
 
 .seeker-welcome-box {
-  background: var(--seeker-pastel);
-  border: 1px solid var(--seeker-line);
+  background: var(--seeker-ivory);
+  border: 1px solid #eadfc4;
   border-radius: 20px;
   padding: 22px 24px;
   color: var(--seeker-navy);
-  box-shadow: 0 10px 24px rgba(19, 79, 168, 0.12);
+  box-shadow: 0 10px 24px rgba(19, 79, 168, 0.09);
 }
 
 .seeker-welcome-box p {
-  margin: 0 0 8px;
+  margin: 0 0 9px;
   font-size: 15px;
-  line-height: 1.7;
-}
-
-.seeker-welcome-box strong {
-  color: var(--seeker-blue);
-  font-weight: 900;
+  line-height: 1.75;
 }
 
 .welcome-greeting {
@@ -307,6 +287,26 @@ button {
   margin-top: 14px !important;
   font-weight: 900;
   color: var(--seeker-red);
+}
+
+.inline-link-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #eadfc4;
+  background: #ffffff;
+  color: var(--seeker-navy);
+  border-radius: 999px;
+  padding: 5px 10px;
+  margin: 0 2px;
+  font-size: 13px;
+  font-weight: 900;
+  box-shadow: 0 4px 10px rgba(2, 39, 115, 0.08);
+  transition: all 0.2s ease;
+}
+
+.inline-link-pill:hover {
+  background: var(--seeker-yellow);
+  transform: translateY(-1px);
 }
 
 .tab-nav {
@@ -725,6 +725,11 @@ button {
   border-color: var(--slate-line);
 }
 
+.secondary-btn.wide {
+  width: 100%;
+  margin-top: 14px;
+}
+
 .cta-btn {
   background: var(--seeker-blue);
   color: #ffffff;
@@ -1122,11 +1127,16 @@ button {
     font-size: 28px;
   }
 
+  .fit-hero-card,
   .stats-grid,
   .admin-summary,
   .two-column-layout,
   .seeker-info-grid {
     grid-template-columns: 1fr;
+  }
+
+  .fit-hero-action {
+    justify-content: stretch;
   }
 
   .tab-btn {
