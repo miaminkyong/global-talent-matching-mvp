@@ -1291,3 +1291,60 @@ button {
   border-bottom: 12px solid transparent !important;
   border-left: 13px solid #f6e7a1 !important;
 }
+.job-inline-actions {
+  margin-top: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  flex-wrap: wrap !important;
+  color: var(--seeker-navy) !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+
+.inline-arrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: auto !important;
+  margin-right: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  color: #ead57a !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  box-shadow: none !important;
+  flex: 0 0 auto !important;
+}
+
+.inline-arrow::after {
+  display: none !important;
+  content: none !important;
+}
+
+.inline-fit-button {
+  background: #ffffff !important;
+  color: var(--seeker-navy) !important;
+  border: 1px solid var(--seeker-line) !important;
+  border-radius: 999px !important;
+  padding: 7px 12px !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  box-shadow: 0 4px 10px rgba(2, 39, 115, 0.05) !important;
+  transition: all 0.2s ease !important;
+}
+
+.inline-fit-button:hover {
+  background: var(--seeker-yellow) !important;
+  border-color: #f0d87b !important;
+  transform: translateY(-1px) !important;
+}
+
+.inline-action-text {
+  color: var(--seeker-text) !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+}
