@@ -1531,7 +1531,7 @@ function goToSeekerTab(tabName) {
                           정착Fit 확인
                         </button>
                         <button className="outline-btn small" onClick={() => setSeekerTab("profile")}>
-                          프로필로 매칭
+                          프로필Fit 확인
                         </button>
                       </div>
                     </div>
