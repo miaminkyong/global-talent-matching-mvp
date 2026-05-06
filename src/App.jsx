@@ -116,7 +116,7 @@ const initialCandidates = [
     diversityPreference: 3,
     koreaVisit: "direct_important",
     spouseESL: true,
-    candidateType: "정착핏 테스트",
+    candidateType: "정착Fit 테스트",
     fitType: "가족 안정형",
     resumeSummary: "배터리 제조 환경에서 스마트팩토리 자동화와 데이터 분석 경험을 보유한 엔지니어",
     notes: "초등 자녀 교육과 안정적 생활비를 중시. 제조업 현장 경험 보유."
@@ -162,6 +162,258 @@ const initialCandidates = [
     fitType: "도시 커리어형",
     resumeSummary: "미국 법인 재무관리와 내부통제 업무에 적합한 시니어 재무 인재",
     notes: "재무관리 경력 강점. 도시 인프라, 학군, 한국 접근성을 중시."
+  },
+  {
+    id: "C004",
+    name: "최현우",
+    email: "hyunwoo.choi@example.com",
+    residence: "대한민국",
+    targetRole: "Equipment Tech Engineer",
+    skills: ["equipment", "manufacturing", "autocad", "PLC", "electronics"],
+    experienceYears: 4,
+    urbanPreference: "suburb",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "average_ok",
+    housingCost: "avg_minus_15",
+    diversityPreference: 2,
+    koreaVisit: "sometimes_direct",
+    spouseESL: false,
+    candidateType: "정착Fit 테스트",
+    fitType: "균형 정착형",
+    resumeSummary: "제조 장비 유지보수와 현장 대응 경험을 보유한 장비기술 엔지니어",
+    notes: "교외형 근무지 수용 가능. 제조 장비와 현장 대응 경험 보유."
+  },
+  {
+    id: "C005",
+    name: "정하은",
+    email: "haeun.jung@example.com",
+    residence: "미국",
+    targetRole: "Accounting Associate",
+    skills: ["accounting", "excel", "erp", "bilingual", "finance"],
+    experienceYears: 2,
+    urbanPreference: "city",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "safe",
+    housingCost: "avg_plus_15",
+    diversityPreference: 4,
+    koreaVisit: "direct_required",
+    spouseESL: false,
+    candidateType: "프로필 업로드",
+    fitType: "도시 커리어형",
+    resumeSummary: "회계, ERP, 엑셀 기반 업무 역량을 가진 주니어 회계 인재",
+    notes: "한인 커뮤니티와 도시 인프라 선호. 주니어 회계 포지션 적합."
+  },
+  {
+    id: "C006",
+    name: "윤도현",
+    email: "dohyun.yoon@example.com",
+    residence: "대한민국",
+    targetRole: "Marketing / Operations Specialist",
+    skills: ["marketing", "operations", "excel", "google sheets", "communication", "korean"],
+    experienceYears: 3,
+    urbanPreference: "city",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "safe",
+    housingCost: "average",
+    diversityPreference: 4,
+    koreaVisit: "sometimes_direct",
+    spouseESL: false,
+    candidateType: "공고 탐색",
+    fitType: "도시 커리어형",
+    resumeSummary: "마케팅 운영과 데이터 정리, 커뮤니케이션 역량을 갖춘 운영형 인재",
+    notes: "J1/OPT 가능성을 탐색하는 청년 인재 프로필."
+  },
+  {
+    id: "C007",
+    name: "한지수",
+    email: "jisu.han@example.com",
+    residence: "대한민국",
+    targetRole: "Battery Engineer",
+    skills: ["battery", "manufacturing", "quality", "process", "korean"],
+    experienceYears: 6,
+    urbanPreference: "suburb",
+    hasChild: true,
+    educationImportance: 5,
+    safetyTolerance: "very_safe",
+    housingCost: "avg_minus_15",
+    diversityPreference: 3,
+    koreaVisit: "sometimes_direct",
+    spouseESL: true,
+    candidateType: "정착Fit 테스트",
+    fitType: "가족 안정형",
+    resumeSummary: "배터리 제조 품질과 공정 개선 경험을 가진 제조 엔지니어",
+    notes: "가족 동반 가능성 높음. 안정적 정착 환경을 중시."
+  },
+  {
+    id: "C008",
+    name: "오세훈",
+    email: "sehoon.oh@example.com",
+    residence: "기타 지역",
+    targetRole: "Automation Engineer",
+    skills: ["automation", "smart factory", "PLC", "python", "network"],
+    experienceYears: 7,
+    urbanPreference: "town",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "risk_ok",
+    housingCost: "avg_minus_30",
+    diversityPreference: 3,
+    koreaVisit: "rare",
+    spouseESL: false,
+    candidateType: "공고 탐색",
+    fitType: "현장 적응형",
+    resumeSummary: "스마트팩토리 자동화, PLC, 네트워크 기반 설비 개선 역량을 갖춘 인재",
+    notes: "비인기 지역 수용성이 높고 기술 적합도가 높은 자동화 인재."
+  },
+  {
+    id: "C009",
+    name: "강유진",
+    email: "yujin.kang@example.com",
+    residence: "대한민국",
+    targetRole: "HR / Operations Coordinator",
+    skills: ["operations", "hr", "onboarding", "communication", "korean", "excel"],
+    experienceYears: 4,
+    urbanPreference: "suburb",
+    hasChild: true,
+    educationImportance: 6,
+    safetyTolerance: "very_safe",
+    housingCost: "average",
+    diversityPreference: 3,
+    koreaVisit: "direct_required",
+    spouseESL: true,
+    candidateType: "정착Fit 테스트",
+    fitType: "가족 안정형",
+    resumeSummary: "온보딩, 운영관리, 커뮤니케이션 역량을 갖춘 HR/운영 인재",
+    notes: "가족 정착 안정성을 최우선으로 보는 운영/HR 인재."
+  },
+  {
+    id: "C010",
+    name: "배성민",
+    email: "sungmin.bae@example.com",
+    residence: "미국",
+    targetRole: "Manufacturing Engineer",
+    skills: ["manufacturing", "equipment", "logistics", "process", "electronics"],
+    experienceYears: 5,
+    urbanPreference: "suburb",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "average_ok",
+    housingCost: "avg_minus_15",
+    diversityPreference: 2,
+    koreaVisit: "rare",
+    spouseESL: false,
+    candidateType: "프로필 업로드",
+    fitType: "균형 정착형",
+    resumeSummary: "제조 공정과 물류 장비 운영 경험을 보유한 현장형 엔지니어",
+    notes: "미국 체류 중인 제조 엔지니어. 현장 투입 가능성과 이동 유연성 보유."
+  },
+  {
+    id: "C011",
+    name: "송예린",
+    email: "yerin.song@example.com",
+    residence: "대한민국",
+    targetRole: "Supply Chain / Logistics Specialist",
+    skills: ["logistics", "supply chain", "excel", "erp", "english", "korean"],
+    experienceYears: 5,
+    urbanPreference: "city",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "safe",
+    housingCost: "average",
+    diversityPreference: 4,
+    koreaVisit: "direct_important",
+    spouseESL: false,
+    candidateType: "프로필 업로드",
+    fitType: "도시 커리어형",
+    resumeSummary: "공급망, 물류, ERP, 엑셀 기반 운영 분석 경험을 가진 물류/SCM 인재",
+    notes: "도시 인프라와 직항 접근성을 중시하는 물류 운영 인재."
+  },
+  {
+    id: "C012",
+    name: "문태준",
+    email: "taejun.moon@example.com",
+    residence: "미국",
+    targetRole: "Quality Engineer",
+    skills: ["quality", "manufacturing", "process", "battery", "inspection", "english"],
+    experienceYears: 8,
+    urbanPreference: "suburb",
+    hasChild: true,
+    educationImportance: 4,
+    safetyTolerance: "safe",
+    housingCost: "average",
+    diversityPreference: 3,
+    koreaVisit: "sometimes_direct",
+    spouseESL: true,
+    candidateType: "공고 탐색",
+    fitType: "균형 정착형",
+    resumeSummary: "제조 품질, 검사, 공정 안정화 경험을 가진 시니어 품질 엔지니어",
+    notes: "미국 체류 경험이 있고 가족 동반 정착 조건도 함께 검토 필요."
+  },
+  {
+    id: "C013",
+    name: "장나래",
+    email: "narae.jang@example.com",
+    residence: "대한민국",
+    targetRole: "Data Analyst",
+    skills: ["python", "data analytics", "excel", "dashboard", "operations", "english"],
+    experienceYears: 4,
+    urbanPreference: "city",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "average_ok",
+    housingCost: "avg_plus_15",
+    diversityPreference: 5,
+    koreaVisit: "direct_required",
+    spouseESL: false,
+    candidateType: "프로필 업로드",
+    fitType: "도시 커리어형",
+    resumeSummary: "파이썬, 대시보드, 운영 데이터 분석 역량을 갖춘 데이터 분석 인재",
+    notes: "도시 기반 커리어 확장과 직항 접근성을 중시."
+  },
+  {
+    id: "C014",
+    name: "임건우",
+    email: "gunwoo.lim@example.com",
+    residence: "대한민국",
+    targetRole: "Field Service Engineer",
+    skills: ["maintenance", "equipment", "field service", "electronics", "customer", "korean"],
+    experienceYears: 6,
+    urbanPreference: "town",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "average_ok",
+    housingCost: "avg_minus_30",
+    diversityPreference: 2,
+    koreaVisit: "rare",
+    spouseESL: false,
+    candidateType: "정착Fit 테스트",
+    fitType: "현장 적응형",
+    resumeSummary: "장비 유지보수, 고객사 대응, 현장 트러블슈팅 경험이 강한 필드 서비스 인재",
+    notes: "비도심 제조 거점 근무 수용성이 높은 후보자."
+  },
+  {
+    id: "C015",
+    name: "노수아",
+    email: "sua.noh@example.com",
+    residence: "캐나다",
+    targetRole: "Marketing / Operations Specialist",
+    skills: ["marketing", "operations", "communication", "excel", "english", "korean"],
+    experienceYears: 4,
+    urbanPreference: "city",
+    hasChild: false,
+    educationImportance: 1,
+    safetyTolerance: "safe",
+    housingCost: "average",
+    diversityPreference: 5,
+    koreaVisit: "sometimes_direct",
+    spouseESL: false,
+    candidateType: "공고 탐색",
+    fitType: "도시 커리어형",
+    resumeSummary: "북미 생활 경험과 마케팅/운영 커뮤니케이션 역량을 갖춘 글로벌 운영 인재",
+    notes: "북미 생활 경험이 있어 미국 근무 전환 가능성이 높은 후보자."
   }
 ];
 
@@ -323,12 +575,14 @@ function extractKeywords(text, fallback = []) {
     "HR",
     "onboarding",
     "quality",
-    "process"
+    "process",
+    "logistics",
+    "supply chain",
+    "dashboard"
   ];
 
   const lowered = text.toLowerCase();
   const found = dictionary.filter((keyword) => lowered.includes(keyword.toLowerCase()));
-
   return [...new Set([...found, ...fallback])].slice(0, 8);
 }
 
@@ -338,6 +592,8 @@ function inferRoleFromKeywords(keywords) {
   if (k.includes("marketing") || k.includes("operations")) return "Marketing / Operations Specialist";
   if (k.includes("field service") || k.includes("maintenance")) return "Field Service Engineer";
   if (k.includes("automation") || k.includes("smart factory") || k.includes("plc")) return "Smart Factory Engineer";
+  if (k.includes("logistics") || k.includes("supply chain")) return "Supply Chain / Logistics Specialist";
+  if (k.includes("quality")) return "Quality Engineer";
   if (k.includes("battery") || k.includes("manufacturing")) return "Manufacturing Engineer";
   return "Open Position";
 }
@@ -534,8 +790,8 @@ export default function App() {
       diversityPreference: Number(fitForm.diversityPreference),
       koreaVisit: fitForm.koreaVisit,
       spouseESL: fitForm.spouseESL === "true",
-      candidateType: "정착핏 테스트",
-      notes: "정착핏 테스트를 통해 생성된 예비 후보자 프로필"
+      candidateType: "정착Fit 테스트",
+      notes: "정착Fit 테스트를 통해 생성된 예비 후보자 프로필"
     };
 
     return {
@@ -724,10 +980,9 @@ export default function App() {
 
       <div className="page-container">
         <header className="hero-card">
-          <div className="hero-topline">Global Talent Landing Platform · MVP</div>
           <h1 className="hero-title">글로벌 인재 발굴·정착 지원 플랫폼</h1>
           <p className="hero-desc">
-            기업 수요 기반 인재 발굴, 정착핏 테스트, 프로필 업로드, 공고 탐색을 하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
+            기업 수요 기반 인재 발굴, 정착Fit 테스트, 프로필 업로드, 공고 탐색을 하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
           </p>
 
           {mode === "admin" ? (
@@ -748,15 +1003,18 @@ export default function App() {
           ) : (
             <div className="seeker-landing">
               <div className="fit-hero-card">
-                <div className="fit-hero-label">핵심 기능</div>
-                <h2>정착핏 테스트</h2>
-                <p>나에게 맞는 미국 근무지와 생활환경 찾기</p>
-                <span>
-                  미국은 지역마다 생활비, 학군, 안전도, 커뮤니티가 다릅니다. 간단한 테스트로 나에게 맞는 근무지와 생활환경을 확인해보세요.
-                </span>
-                <button className="cta-btn fit-main-btn" onClick={() => setSeekerTab("fit")}>
-                  정착핏 테스트 시작하기
-                </button>
+                <div className="fit-hero-content">
+                  <h2>정착Fit 테스트</h2>
+                  <p>나에게 맞는 미국 근무지와 생활환경 찾기</p>
+                  <span>
+                    미국은 지역마다 생활비, 학군, 안전도, 커뮤니티가 다릅니다. 간단한 테스트로 내게 맞는 근무지/생활환경을 확인해보세요.
+                  </span>
+                </div>
+                <div className="fit-hero-action">
+                  <button className="cta-btn fit-main-btn" onClick={() => setSeekerTab("fit")}>
+                    정착Fit 테스트 시작하기
+                  </button>
+                </div>
               </div>
 
               <div className="seeker-info-grid">
@@ -770,13 +1028,25 @@ export default function App() {
                 <div className="seeker-welcome-box">
                   <p className="welcome-greeting">안녕하세요. 헤드헌터 성민경입니다.</p>
                   <p>
-                    나에게 맞는 미국 근무지와 생활환경을 찾으려면 <strong>정착핏 테스트</strong>를,
+                    나에게 맞는 미국 근무지와 생활환경을 찾으려면{" "}
+                    <button className="inline-link-pill" onClick={() => setSeekerTab("fit")}>
+                      정착Fit 테스트
+                    </button>
+                    를,
                   </p>
                   <p>
-                    관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면 <strong>공고 탐색</strong>을,
+                    관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면{" "}
+                    <button className="inline-link-pill" onClick={() => setSeekerTab("explore")}>
+                      공고 탐색
+                    </button>
+                    을,
                   </p>
                   <p>
-                    보유한 이력서를 기반으로 맞춤 공고를 추천받고 싶다면 <strong>프로필 업로드</strong>를 눌러보세요.
+                    보유한 이력서를 기반으로 맞춤 공고를 추천 받고 싶으면{" "}
+                    <button className="inline-link-pill" onClick={() => setSeekerTab("profile")}>
+                      프로필 업로드
+                    </button>
+                    를 눌러보세요.
                   </p>
                   <p className="welcome-closing">안정적인 미국 정착과 성공적인 구직을 응원합니다!</p>
                 </div>
@@ -909,7 +1179,7 @@ export default function App() {
                 <div className="section-head section-head-inline">
                   <div>
                     <h2>인재 DB</h2>
-                    <p>같은 이메일의 지원자는 프로필 업로드, 정착핏 테스트 결과가 하나의 DB에 누적 업데이트됩니다.</p>
+                    <p>같은 이메일의 지원자는 프로필 업로드, 정착Fit 테스트 결과가 하나의 DB에 누적 업데이트됩니다.</p>
                   </div>
                   <button className="primary-btn" onClick={exportCandidates}>
                     CSV 다운로드
@@ -1076,7 +1346,7 @@ export default function App() {
           <>
             <nav className="tab-nav seeker-tabs">
               <button className={`tab-btn seeker-tab ${seekerTab === "fit" ? "active" : ""}`} onClick={() => setSeekerTab("fit")}>
-                정착핏 테스트
+                정착Fit 테스트
               </button>
               <button className={`tab-btn seeker-tab ${seekerTab === "explore" ? "active" : ""}`} onClick={() => setSeekerTab("explore")}>
                 공고 탐색
@@ -1090,7 +1360,7 @@ export default function App() {
               <section className="section-card seeker-card">
                 <div className="seeker-page-title">
                   <div>
-                    <h2>정착핏 테스트</h2>
+                    <h2>정착Fit 테스트</h2>
                     <p>나에게 맞는 미국 근무지와 생활환경 찾기</p>
                   </div>
                   <span className="seeker-badge">지역 선호도 기반</span>
@@ -1153,7 +1423,7 @@ export default function App() {
                       </select>
                     </label>
                     <button className="cta-btn" onClick={runFitTest}>
-                      정착핏 결과 보기
+                      정착Fit 결과 보기
                     </button>
                   </div>
 
@@ -1246,7 +1516,7 @@ export default function App() {
                       </div>
                       <div className="card-actions">
                         <button className="yellow-action-btn small" onClick={() => setSeekerTab("fit")}>
-                          정착핏 확인
+                          정착Fit 확인
                         </button>
                         <button className="outline-btn small" onClick={() => setSeekerTab("profile")}>
                           프로필로 매칭
@@ -1279,7 +1549,7 @@ export default function App() {
                       <input value={profileForm.email} onChange={(e) => setProfileForm({ ...profileForm, email: e.target.value })} placeholder="예: name@email.com" />
                     </label>
                     <label>
-                      희망 직무
+                      희망직무(선택)
                       <input value={profileForm.targetRole} onChange={(e) => setProfileForm({ ...profileForm, targetRole: e.target.value })} placeholder="비워두면 AI가 추정합니다" />
                     </label>
                     <label>
