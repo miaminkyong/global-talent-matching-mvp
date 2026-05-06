@@ -1527,7 +1527,7 @@ function goToSeekerTab(tabName) {
                         ))}
                       </div>
                      <div className="card-actions job-inline-actions">
-<span className="inline-arrow" />
+  <span className="inline-arrow">➜</span>
   <button
     className="inline-fit-button"
     onClick={() => goToSeekerTab("fit")}
@@ -1542,7 +1542,6 @@ function goToSeekerTab(tabName) {
   </button>
   <span className="inline-action-text">확인</span>
 </div>
-                    </div>
                   ))}
                 </div>
                 <div className="profile-prompt-box">
