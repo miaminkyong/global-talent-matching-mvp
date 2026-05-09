@@ -116,7 +116,7 @@ const initialCandidates = [
     diversityPreference: 3,
     koreaVisit: "direct_important",
     spouseESL: true,
-    candidateType: "정착Fit 테스트",
+    candidateType: "정착Fit 분석",
     fitType: "가족 안정형",
     resumeSummary: "배터리 제조 환경에서 스마트팩토리 자동화와 데이터 분석 경험을 보유한 엔지니어",
     notes: "초등 자녀 교육과 안정적 생활비를 중시. 제조업 현장 경험 보유."
@@ -179,7 +179,7 @@ const initialCandidates = [
     diversityPreference: 2,
     koreaVisit: "sometimes_direct",
     spouseESL: false,
-    candidateType: "정착Fit 테스트",
+    candidateType: "정착Fit 분석",
     fitType: "균형 정착형",
     resumeSummary: "제조 장비 유지보수와 현장 대응 경험을 보유한 장비기술 엔지니어",
     notes: "교외형 근무지 수용 가능. 제조 장비와 현장 대응 경험 보유."
@@ -242,7 +242,7 @@ const initialCandidates = [
     diversityPreference: 3,
     koreaVisit: "sometimes_direct",
     spouseESL: true,
-    candidateType: "정착Fit 테스트",
+    candidateType: "정착Fit 분석",
     fitType: "가족 안정형",
     resumeSummary: "배터리 제조 품질과 공정 개선 경험을 가진 제조 엔지니어",
     notes: "가족 동반 가능성 높음. 안정적 정착 환경을 중시."
@@ -284,7 +284,7 @@ const initialCandidates = [
     diversityPreference: 3,
     koreaVisit: "direct_required",
     spouseESL: true,
-    candidateType: "정착Fit 테스트",
+    candidateType: "정착Fit 분석",
     fitType: "가족 안정형",
     resumeSummary: "온보딩, 운영관리, 커뮤니케이션 역량을 갖춘 HR/운영 인재",
     notes: "가족 정착 안정성을 최우선으로 보는 운영/HR 인재."
@@ -389,7 +389,7 @@ const initialCandidates = [
     diversityPreference: 2,
     koreaVisit: "rare",
     spouseESL: false,
-    candidateType: "정착Fit 테스트",
+    candidateType: "정착Fit 분석",
     fitType: "현장 적응형",
     resumeSummary: "장비 유지보수, 고객사 대응, 현장 트러블슈팅 경험이 강한 필드 서비스 인재",
     notes: "비도심 제조 거점 근무 수용성이 높은 후보자."
@@ -849,8 +849,8 @@ export default function App() {
       diversityPreference: Number(fitForm.diversityPreference),
       koreaVisit: fitForm.koreaVisit,
       spouseESL: fitForm.spouseESL === "true",
-      candidateType: "정착Fit 테스트",
-      notes: "정착Fit 테스트를 통해 생성된 예비 후보자 프로필"
+      candidateType: "정착Fit 분석",
+      notes: "정착Fit 분석를 통해 생성된 예비 후보자 프로필"
     };
 
     return {
@@ -1060,7 +1060,7 @@ export default function App() {
         <header className="hero-card">
           <h1 className="hero-title">글로벌 인재 발굴·정착 지원 플랫폼</h1>
           <p className="hero-desc">
-            기업 수요 기반 인재 발굴, 정착Fit 테스트, 프로필Fit 분석, 공고 탐색을 하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
+            기업 수요 기반 인재 발굴, 정착Fit 분석, 프로필Fit 분석, 공고 탐색을 하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
           </p>
 
           {mode === "admin" ? (
@@ -1082,7 +1082,7 @@ export default function App() {
             <div className="seeker-landing">
               <div className="fit-hero-card">
                 <div className="fit-hero-content">
-                  <h2>정착Fit 테스트</h2>
+                  <h2>정착Fit 분석</h2>
                   <p>나에게 맞는 미국 근무지와 생활환경을 찾아보세요.</p>
                   <span>
                     미국은 지역마다 생활비, 학군, 안전도, 커뮤니티가 다릅니다. 간단한 테스트로 내게 맞는 근무지/생활환경을 확인해보세요.
@@ -1090,7 +1090,7 @@ export default function App() {
                 </div>
                 <div className="fit-hero-action">
                   <button className="cta-btn fit-main-btn" onClick={() => goToSeekerTab("fit")}>
-                    정착Fit 테스트 시작하기
+                    정착Fit 분석 시작하기
                   </button>
                 </div>
               </div>
@@ -1108,9 +1108,16 @@ export default function App() {
                   <p>
                     나에게 맞는 미국 근무지와 생활환경을 찾으려면{" "}
                     <button className="inline-link-pill" onClick={() => goToSeekerTab("fit")}>
-                      정착Fit 테스트
+                      정착Fit 분석
                     </button>
                     를,
+                  </p>
+                      <p>
+                    보유한 이력서를 기반으로 맞춤 공고를 추천 받고 싶으면{" "}
+                    <button className="inline-link-pill" onClick={() => goToSeekerTab("profile")}>
+                      프로필Fit 분석
+                    </button>
+                    를 눌러보세요.
                   </p>
                   <p>
                     관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면{" "}
@@ -1119,13 +1126,7 @@ export default function App() {
                     </button>
                     을,
                   </p>
-                  <p>
-                    보유한 이력서를 기반으로 맞춤 공고를 추천 받고 싶으면{" "}
-                    <button className="inline-link-pill" onClick={() => goToSeekerTab("profile")}>
-                      프로필Fit 분석
-                    </button>
-                    를 눌러보세요.
-                  </p>
+              
                   <p className="welcome-closing">안정적인 미국 정착과 성공적인 구직을 응원합니다!</p>
                 </div>
               </div>
@@ -1281,7 +1282,7 @@ export default function App() {
                 <div className="section-head section-head-inline">
                   <div>
                     <h2>인재 DB</h2>
-                    <p>같은 이메일의 지원자는 프로필Fit 분석, 정착Fit 테스트 결과가 하나의 DB에 누적 업데이트됩니다.</p>
+                    <p>같은 이메일의 지원자는 프로필Fit 분석, 정착Fit 분석 결과가 하나의 DB에 누적 업데이트됩니다.</p>
                   </div>
                   <button className="primary-btn" onClick={exportCandidates}>
                     CSV 다운로드
@@ -1456,7 +1457,7 @@ export default function App() {
               <section className="section-card seeker-card">
                 <div className="seeker-page-title">
                   <div>
-                    <h2>정착Fit 테스트</h2>
+                    <h2>정착Fit 분석</h2>
                     <p>나에게 맞는 미국 근무지와 생활환경을 찾아보세요.</p>
                   </div>
                 </div>
