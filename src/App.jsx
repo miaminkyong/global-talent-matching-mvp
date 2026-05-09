@@ -1117,14 +1117,14 @@ export default function App() {
                     <button className="inline-link-pill" onClick={() => goToSeekerTab("profile")}>
                       프로필Fit 분석
                     </button>
-                    를 눌러보세요.
+                    을,
                   </p>
                   <p>
                     관심 키워드와 지역 기준으로 미국에 진출한 한국기업 공고를 찾으려면{" "}
                     <button className="inline-link-pill" onClick={() => goToSeekerTab("explore")}>
                       공고 탐색
                     </button>
-                    을,
+                    을 눌러보세요.
                   </p>
               
                   <p className="welcome-closing">안정적인 미국 정착과 성공적인 구직을 응원합니다!</p>
