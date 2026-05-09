@@ -137,7 +137,7 @@ const initialCandidates = [
     diversityPreference: 2,
     koreaVisit: "rare",
     spouseESL: false,
-    candidateType: "프로필 업로드",
+    candidateType: "프로필Fit 분석",
     fitType: "현장 적응형",
     resumeSummary: "자동화 설비 유지보수와 고객사 현장 대응 경험을 가진 필드 서비스 엔지니어",
     notes: "생활비가 낮고 현장성이 강한 지역 선호. 이동 유연성 높음."
@@ -158,7 +158,7 @@ const initialCandidates = [
     diversityPreference: 4,
     koreaVisit: "direct_required",
     spouseESL: true,
-    candidateType: "프로필 업로드",
+    candidateType: "프로필Fit 분석",
     fitType: "도시 커리어형",
     resumeSummary: "미국 법인 재무관리와 내부통제 업무에 적합한 시니어 재무 인재",
     notes: "재무관리 경력 강점. 도시 인프라, 학군, 한국 접근성을 중시."
@@ -200,7 +200,7 @@ const initialCandidates = [
     diversityPreference: 4,
     koreaVisit: "direct_required",
     spouseESL: false,
-    candidateType: "프로필 업로드",
+    candidateType: "프로필Fit 분석",
     fitType: "도시 커리어형",
     resumeSummary: "회계, ERP, 엑셀 기반 업무 역량을 가진 주니어 회계 인재",
     notes: "한인 커뮤니티와 도시 인프라 선호. 주니어 회계 포지션 적합."
@@ -305,7 +305,7 @@ const initialCandidates = [
     diversityPreference: 2,
     koreaVisit: "rare",
     spouseESL: false,
-    candidateType: "프로필 업로드",
+    candidateType: "프로필Fit 분석",
     fitType: "균형 정착형",
     resumeSummary: "제조 공정과 물류 장비 운영 경험을 보유한 현장형 엔지니어",
     notes: "미국 체류 중인 제조 엔지니어. 현장 투입 가능성과 이동 유연성 보유."
@@ -326,7 +326,7 @@ const initialCandidates = [
     diversityPreference: 4,
     koreaVisit: "direct_important",
     spouseESL: false,
-    candidateType: "프로필 업로드",
+    candidateType: "프로필Fit 분석",
     fitType: "도시 커리어형",
     resumeSummary: "공급망, 물류, ERP, 엑셀 기반 운영 분석 경험을 가진 물류/SCM 인재",
     notes: "도시 인프라와 직항 접근성을 중시하는 물류 운영 인재."
@@ -368,7 +368,7 @@ const initialCandidates = [
     diversityPreference: 5,
     koreaVisit: "direct_required",
     spouseESL: false,
-    candidateType: "프로필 업로드",
+    candidateType: "프로필Fit 분석",
     fitType: "도시 커리어형",
     resumeSummary: "파이썬, 대시보드, 운영 데이터 분석 역량을 갖춘 데이터 분석 인재",
     notes: "도시 기반 커리어 확장과 직항 접근성을 중시."
@@ -902,7 +902,7 @@ export default function App() {
       diversityPreference: 3,
       koreaVisit: "sometimes_direct",
       spouseESL: false,
-      candidateType: "프로필 업로드",
+      candidateType: "프로필Fit 분석",
       fitType: "분석 대기",
       resumeSummary: summary,
       notes: `${profileForm.fileName || "이력서"} 기반으로 AI 분석 mock 처리된 후보자 프로필`
@@ -1060,7 +1060,7 @@ export default function App() {
         <header className="hero-card">
           <h1 className="hero-title">글로벌 인재 발굴·정착 지원 플랫폼</h1>
           <p className="hero-desc">
-            기업 수요 기반 인재 발굴, 정착Fit 테스트, 프로필 업로드, 공고 탐색을 하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
+            기업 수요 기반 인재 발굴, 정착Fit 테스트, 프로필Fit 분석, 공고 탐색을 하나로 연결하는 AI 기반 헤드헌팅 플랫폼 데모입니다.
           </p>
 
           {mode === "admin" ? (
@@ -1122,7 +1122,7 @@ export default function App() {
                   <p>
                     보유한 이력서를 기반으로 맞춤 공고를 추천 받고 싶으면{" "}
                     <button className="inline-link-pill" onClick={() => goToSeekerTab("profile")}>
-                      프로필 업로드
+                      프로필Fit 분석
                     </button>
                     를 눌러보세요.
                   </p>
@@ -1281,7 +1281,7 @@ export default function App() {
                 <div className="section-head section-head-inline">
                   <div>
                     <h2>인재 DB</h2>
-                    <p>같은 이메일의 지원자는 프로필 업로드, 정착Fit 테스트 결과가 하나의 DB에 누적 업데이트됩니다.</p>
+                    <p>같은 이메일의 지원자는 프로필Fit 분석, 정착Fit 테스트 결과가 하나의 DB에 누적 업데이트됩니다.</p>
                   </div>
                   <button className="primary-btn" onClick={exportCandidates}>
                     CSV 다운로드
@@ -1638,7 +1638,7 @@ export default function App() {
               <section className="section-card seeker-card profile-section">
                 <div className="seeker-page-title">
                   <div>
-                    <h2>프로필 업로드</h2>
+                    <h2>프로필Fit 분석</h2>
                     <p>더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.</p>
                   </div>
                 </div>
@@ -1736,7 +1736,7 @@ function ProfilePrompt({ goToSeekerTab }) {
     <div className="profile-prompt-box">
       <span>더 정확한 맞춤 공고 추천을 받고 싶다면 이력서를 업로드해보세요.</span>
       <button className="profile-prompt-link" onClick={() => goToSeekerTab("profile")}>
-        프로필 업로드
+        프로필Fit 분석
       </button>
     </div>
   );
